@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册-ZOL商城(ZOL.COM)-中国专业3C数码网购商城｜正品低价 放心购</title>
+	<meta name="description" content="ZOL商城,中关村在线,笔记本,手机,DIY硬件,数码相机">
+	<meta name="description" content="ZOL商城,zol.com,放心,舒心,省心,购物平台">
+	<link rel="icon" href="../img/logo_min.ico"  type="image/x-ico">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/reg.css">
+	
+</head>
+<body>
+	<div class="wrapper">
+	<!-- 注册页面头部信息 -->
+		<div class="zol-upinfo">
+			<div class="zol-logo">
+				<a href="../../index.html" target="_blank" class="logo"><img src="../img/reg/shop_182x60.png" alt=""></a>
+				<a href="../../index.html" target="_blank">中关村在线旗下网上商城</a>
+			</div>
+			<div class="zol-regtips">
+				已经有ZOL商城账号？&nbsp;&nbsp;<a href="../html/login.html">立即登录</a>
+			</div>
+		</div>
+	<!-- 表单验证区域 -->
+		<section>
+			<div class="tb-top">
+				<h1>30秒快速注册，加入ZOL商城</h1>
+			</div>
+			<div class="tb-wrapper">
+				<div class="reg-info">
+					<p class="reg-head"><span>用手机号注册</span></p>
+					<form class="tb-form">
+					<!-- 填写手机号 -->
+						<div class="tb-phone commsty">
+							<label for="reg_phone"><em>*</em>手&nbsp;机&nbsp;号：</label>
+							<input type="text" id="reg_phone" name="reg_phone">
+							<span class="verify_phone vfreg"></span>
+							<i>请填写手机号码</i>
+							<div class="reg-tips">请填写手机号码</div>
+						</div>
+					<!--图像验证码  -->
+						<div class="tb-authCode commsty">
+							<label for="reg_authCode"><em>*</em>验&nbsp;证&nbsp;码：</label>
+							<input type="text" id="reg_authCode" name="reg_authCode">
+							<span class="verify_authCode vfreg"></span>
+							<div id="v_container" style="width: 110px;height: 40px;"></div>
+							<i>请填写图片验证码,点击验证码自动更新</i>
+							<div class="reg-tips">请填写验证码</div>
+						</div>
+					<!--短信验证码  -->
+						<div class="tb-msgCode commsty">
+							<label for="reg_msg"><em>*</em>验&nbsp;证&nbsp;码：</label>
+							<input type="text" id="reg_msg" name="reg_msg">
+							<span class="verify_msg vfreg"></span>
+							<input type="submit" value="获取短信验证码" class="msgBtn">
+							<i>请填写手机号码，然后点击[获取验证码]</i>
+							<div class="reg-tips">请填写手机验证码</div>
+						</div>
+					<!-- 密码 -->
+						<div class="tb-pwd commsty">
+							<label for="reg_pwd"><em>*</em>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+							<input type="password" id="reg_pwd" name="reg_pwd">
+							<span class="verify_pwd vfreg"></span>
+							<i>6-16位字母和数字的组合，不可用特殊字符</i>
+							<div class="reg-tips">请填写密码</div>
+						</div>
+					<!-- 确认密码 -->
+						<div class="tb-pwds commsty">
+							<label for="reg_pwds"><em>*</em>确认密码：</label>
+							<input type="password" id="reg_pwds" name="reg_pwds">
+							<span class="verify_pwds vfreg"></span>
+							<i>再次输入密码</i>
+							<div class="reg-tips">请填写确认密码</div>
+						</div>
+					<!-- 注册按钮   同意书按钮-->
+						<div class="send-btn">
+							<div class="tb-sign">
+								<input type="checkbox" class="chkbox">同意<a href="#">《商城用户协议》</a><a href="#">《隐私权说明》</a>
+							</div>
+							<input type="submit" value="注&nbsp;&nbsp;册" id="reg_btn">
+						</div>												
+					</form>
+				</div>
+
+				<!-- 第三方登录方式 -->
+				<div class="reg-team">
+					<div class="team-top">
+						如果您已经注册，请<a href="login.html">直接登录</a>或者用以下方式登录：
+					</div>
+					<div class="team-ico">
+						<a href="https://open.weixin.qq.com/connect/qrconnect?appid=wx5b1a2b570ea8098e&redirect_uri=http%3A%2F%2Fservice.zol.com.cn%2Fuser%2Fapi%2Fweixin%2Fcallback.php&response_type=code&scope=snsapi_login&state=0" target="_blank"></a>
+						<a href="https://api.weibo.com/oauth2/authorize?client_id=4028615622&redirect_uri=http%3A%2F%2Fservice.zol.com.cn%2Fuser%2Fapi%2Fsina%2Fcallback.php&response_type=code" target="_blank"></a>
+						<a href="https://graph.qq.com/oauth/show?which=Login&display=pc&response_type=code&client_id=208936&redirect_uri=http%3A%2F%2Fservice.zol.com.cn%2Fuser%2Fapi%2Fqq%2Flibs%2Foauth%2Fget_access_token.php&state=05877312771c994cf7c18b32e02125c7&scope=get_user_info,add_share,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo,check_page_fans,get_info,add_pic_t,get_repost_list,get_other_info,get_fanslist,get_idollist,add_idol,del_idol" target="_blank"></a>
+						<a href="https://auth.alipay.com/login/express.htm?goto=https%3A%2F%2Fmemberexprod.alipay.com%3A443%2Fauthorize%2FuserAuthQuickLoginAction.htm%3Fe_i_i_d%3D583e838051ff402ecb07badb5d30bfb8" target="_blank"></a>
+						<a href="https://openapi.baidu.com/oauth/2.0/authorize?response_type=code&client_id=S8mu6XF2eyofbNPHkpUZwy79&redirect_uri=http%3A%2F%2Fservice.zol.com.cn%2Fuser%2Fapi%2Fbaidu%2Fcallback.php&scope=&state=17929dbd3f3d3f00b47c86a8cb656815&display=page" target="_blank"></a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+		<!-- 页脚信息 -->
+		<footer>
+			<p>
+				<a href="">关于ZOL商城</a>|
+				<a href="">联系我们</a>|
+				<a href="">帮助中心</a>
+				<span>©2017. 中关村在线 版权所有</span>
+			</p>
+		</footer>	
+	<script src="../js/require.js" data-main="../js/reg"></script>
+</body>
+</html>

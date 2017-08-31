@@ -1,0 +1,18 @@
+/* CSS Document */
+.fl{float: left;}
+.fr{float: right;}
+.ov{overflow:hidden;}
+
+//万能清除法
+.clear{
+	content:'';
+	clear:both;
+	height:0;
+	overflow:hidden;
+	display: block;
+	visibility:hidden;
+	zoom:1;
+}
+
+
+/*全局公共样式*/
