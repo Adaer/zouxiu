@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* CSS Document */
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.ov {
+  overflow: hidden;
+}
+
+.clear {
+  content: '';
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  display: block;
+  visibility: hidden;
+  zoom: 1;
+}
+
+/*全局公共样式*/

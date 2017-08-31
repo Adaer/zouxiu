@@ -3,7 +3,7 @@
 var gulp = require('gulp');	//引用模块
 var sass = require('gulp-sass');
 //创建任务，编译sass文件
-gulp.task('compileSass',()=>{
+gulp.task('compileSass',function(){
 	//用于scss引用其他scss文件时 可能报错，延迟代码执行
 	setTimeout(function(){
 		return gulp.src('./src/scss/*.scss')	//添加scss文件
@@ -13,7 +13,7 @@ gulp.task('compileSass',()=>{
 
 });
 // 文件变动监听 自动编译处理
-gulp.task('listenSass',()=>{
+gulp.task('listenSass',function(){
 	return gulp.watch(
 		['./src/**/*.scss'],['compileSass']	//监听文件夹 文件，执行任务
 	);

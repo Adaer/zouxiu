@@ -1,0 +1,178 @@
+/**	
+ *  header css
+ *  by:lfping
+ *  time:2017年8月31日16:24:21
+ */
+@import 'reset';
+
+// 头部外壳
+.top-wrap{
+	min-height: 92px;
+	background: #333;
+	.top-head{
+	 	width: 1200px;
+	 	height: 34px;
+	 	margin: 0 auto;
+	 	padding-top: 10px;
+    	position: relative; 	
+	 	ul{
+	 		float: left;
+	 		li{
+	 			float: left;
+	 			a{
+	 				color: #e6e6e6;
+	 				display: block;
+	 				margin-right: 10px;
+	 			}
+	 			&:nth-of-type(3){
+	 				position:relative;
+	 				z-index:99;
+					border-right: 1px solid #333;
+					border-left: 1px solid #333;
+					border-top: 1px solid #333;		 				
+					.top-myshow{
+						padding-left: 6px;
+						padding-right: 13px;
+						margin-right: 0;
+						background: url(../img/index/spriter2016.png) no-repeat -171px -117px;	
+					}
+					.top-user-info{
+						background: #fff;
+						padding-left: 6px;
+						border-right: 1px solid #e6e6e6;
+						border-left: 1px solid #e6e6e6;
+						border-bottom: 1px solid #e6e6e6;
+						display: none;
+						li{
+							float: none;
+							&:nth-of-type(3){
+								border: 0 none;
+							}
+							a{color: #333;}
+						}
+						li:hover a{color: #f33;}
+					}
+	 			}
+	 			&:nth-of-type(3):hover a{
+	 				background: url(../img/index/spriter2016.png) no-repeat -171px -153px;
+	 			}
+	 		}
+ 			.top-cart-wrap{
+ 				a{
+ 					padding-left: 20px;
+					background: url(../img/index/spriter2016.png) no-repeat -219px -83px;
+					span{
+						color: #EA632E;
+						padding: 0 2px;
+					}
+ 				}
+ 			} 
+	 	}
+	 	/* ↑↑↑顶部注册登录 个人购物信息↑↑↑↑ */
+	 	/* ↓↓↓↓商城logo↓↓↓↓↓ */
+	 	.top-logo{
+	 		position:absolute;
+	 		left:50%;
+	 		-webkit-transform: translate(-50%,0);
+	 		transform: translate(-50%,0);
+	 		a{
+	 			display: block;
+	 			width: 210px;
+	 			height: 34px;
+	 			background: url(../img/index/spriter2016.png) no-repeat 0 2px;
+	 		}
+	 	}
+	 	/* ↓↓↓顶部搜索框↓↓↓↓  */
+	 	.top-seach{
+	 		float: right;
+	 		margin-right: 30px;
+	 		position: relative;
+	 		label{
+	 			position:absolute;
+	 			top:4px;
+	 			left:4px;
+	 			color: #888;
+	 			b{font-weight:bold;}
+	 		}
+	 		.top-keywd{
+			    width: 200px;
+			    height: 24px;
+			    padding-left: 4px;
+			    float: left;
+			    border: 1px solid #888;
+			    border-right: 0 none;
+			    background: #333;
+			    color: #888;
+	 		}
+	 		.top-btn{
+			    float: left;
+			    height: 26px;
+			    width: 22px;
+			    background: #333;
+			    background: url(../img/index/spriter2016.png) no-repeat -3px -44px;
+			    border: 1px solid #888;
+    			border-left: 0 none;
+    			cursor:pointer;
+	 		}
+	 	}
+	}
+	/* ↓↓↓ 顶部主导航 ↓↓↓↓  */
+	.top-nav{
+		@extend .top-head;
+		.top-nav-main li a{
+			font-size: 15px;
+		    width: 66px;
+		    text-align: center;
+		    margin: 0;
+		    padding-bottom: 6px;
+		}
+		.top-nav-main{
+			position: absolute;
+	    	left: 50%;
+	    	transform: translate(-50%,0);	
+	    	li{
+	    	    margin: 0 4px;	
+	    	}
+	    	li:hover{
+	    		a{
+	    			border-bottom: 2px solid #888;
+	    		}
+	    	}
+			li:nth-of-type(1){
+				a{ border-bottom: 2px solid #888;}
+			}
+			li:nth-of-type(6){
+				a{ color: #f33;}
+			}
+		}
+	}
+}
+// 头部外壳2 nav
+.top-menu-wrap{
+	height: 42px;
+    line-height: 42px;
+    background: #f7f7f7;
+	nav{
+		width: 1200px;
+		margin: 0 auto;
+		position:relative;
+		ul{
+		    position: absolute;
+		    left: 50%;
+		    transform: translate(-50%, 0);	
+			li{
+				float: left;
+				position:relative;
+				span{
+					display: block;
+				    font-size: 14px;
+				    width: 64px;
+				    text-align: center;
+				    border-left: #f7f7f7 1px solid;
+				    border-right: #f7f7f7 1px solid;
+				    border-top: #f7f7f7 1px solid;
+				}
+			}
+		}
+	}
+}
