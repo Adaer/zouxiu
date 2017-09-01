@@ -1,0 +1,313 @@
+@charset "UTF-8";
+/**	
+ *  header css
+ *  by:lfping
+ *  time:2017年9月1日14:12:31
+ */
+/* CSS Document */
+html, body {
+  font: 12px/1.5 '微软雅黑', "黑体","宋体";
+  color: #333;
+  outline: 0;
+}
+
+body {
+  min-width: 1200px;
+}
+
+body, div, h1, h2, h3, h4, h5, h6, p, ul, li, dl, dt, dd, img, form, table, caption, th, td, figure, button, input {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th {
+  text-align: left;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #666;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+button {
+  vertical-align: middle;
+}
+
+i, b, em {
+  font-weight: normal;
+  font-style: normal;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  border: 0;
+  vertical-align: middle;
+}
+
+input {
+  border: 0;
+  outline: none;
+}
+
+/*全局重置样式*/
+/* CSS Document */
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.ov {
+  overflow: hidden;
+}
+
+.clear, .ft-wrap .ft-foot::after {
+  content: '';
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  display: block;
+  visibility: hidden;
+  zoom: 1;
+}
+
+/*全局公共样式*/
+.ft-wrap {
+  min-height: 120px;
+  background: #F2F2F2;
+}
+
+.ft-wrap .ft-foot {
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 30px;
+  position: relative;
+}
+
+.ft-wrap .ft-foot .ft-foot-lt {
+  width: 186px;
+  height: 132px;
+  background: url(../img/footer/footer_sprite.gif) no-repeat 0 -79px;
+  float: left;
+  position: relative;
+  margin-right: 76px;
+}
+
+.ft-wrap .ft-foot .ft-foot-lt a {
+  display: inline-block;
+  width: 180px;
+  height: 30px;
+  position: absolute;
+}
+
+.ft-wrap .ft-foot .ft-foot-lt a:nth-of-type(2) {
+  top: 96px;
+}
+
+.ft-wrap .ft-foot .ft-foot-list {
+  float: left;
+}
+
+.ft-wrap .ft-foot .ft-foot-list a {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.ft-wrap .ft-foot .ft-foot-list .ft-state {
+  position: relative;
+}
+
+.ft-wrap .ft-foot .ft-foot-list .ft-state .tariffs-box {
+  background: url(../img/footer/footer_sprite.gif) no-repeat 0px -300px;
+  height: 99px;
+  width: 196px;
+  padding-left: 9px;
+  color: #e6e6e6;
+  display: none;
+  position: absolute;
+  top: -62px;
+  left: 58px;
+  z-index: 101;
+}
+
+.ft-wrap .ft-foot .ft-foot-center {
+  width: 300px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 90px;
+}
+
+.ft-wrap .ft-foot .ft-foot-center div:nth-child(1) {
+  height: 34px;
+  position: relative;
+}
+
+.ft-wrap .ft-foot .ft-foot-center div:nth-child(1) p {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #f2f2f2;
+  font-size: 20px;
+  padding: 0 8px;
+}
+
+.ft-wrap .ft-foot .ft-foot-center div:nth-child(1) .ft-foot-line {
+  height: 1px;
+  border-bottom: 1px solid #888;
+}
+
+.ft-wrap .ft-foot .ft-foot-center ul {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.ft-wrap .ft-foot .ft-foot-center ul li {
+  float: left;
+}
+
+.ft-wrap .ft-foot .ft-foot-center ul a {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  background: url(../img/footer/footer_sprite.gif) no-repeat;
+}
+
+.ft-wrap .ft-foot .ft-foot-center ul li:nth-of-type(1) .ft-wxcood {
+  display: inline-block;
+  width: 95px;
+  height: 92px;
+  background: url(../img/footer/footer_sprite.gif) no-repeat -185px -84px #fff;
+  position: absolute;
+  top: 17px;
+  left: -7px;
+  display: none;
+}
+
+.ft-wrap .ft-foot .ft-foot-center ul li:nth-of-type(1) a {
+  background-position: 0px -224px;
+}
+
+.ft-wrap .ft-foot .ft-foot-center ul li:nth-of-type(2) a {
+  background-position: -70px -224px;
+}
+
+.ft-wrap .ft-foot .ft-foot-center ul li:nth-of-type(3) a {
+  background-position: -143px -224px;
+}
+
+.ft-wrap .ft-foot .ft-foot-center ul li:nth-of-type(4) a {
+  background-position: -210px -224px;
+}
+
+.ft-wrap .ft-foot .ft-foot-center form {
+  background: url(../img/footer/footer_sprite.gif) no-repeat 2px -435px;
+  height: 32px;
+  padding: 3px;
+  margin-top: 20px;
+}
+
+.ft-wrap .ft-foot .ft-foot-center form .ft-search {
+  width: 213px;
+  height: 27px;
+  padding-left: 4px;
+  background: #f2f2f2;
+  color: #888;
+}
+
+.ft-wrap .ft-foot .ft-foot-center form .ft-foot-btn {
+  width: 28px;
+  height: 28px;
+  border: 0 none;
+  cursor: pointer;
+  background: transparent;
+  float: right;
+  margin-right: 43px;
+  outline: none;
+}
+
+.ft-wrap .ft-foot .ft-foot-rt {
+  position: absolute;
+  right: 56px;
+  top: 21px;
+}
+
+.ft-wrap .ft-foot .ft-foot-rt p {
+  font-size: 15px;
+  line-height: 26px;
+  padding-left: 12px;
+}
+
+.ft-wrap .ft-foot .ft-foot-rt a {
+  display: inline-block;
+  width: 95px;
+  height: 92px;
+  background: url(../img/footer/footer_sprite.gif) no-repeat -185px -84px #fff;
+}
+
+footer .about-us, footer .ft-foot-icon, footer .ft-copyright {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+}
+
+footer .about-us a, footer .ft-foot-icon a, footer .ft-copyright a {
+  padding-left: 6px;
+}
+
+footer .about-us a span::after, footer .ft-foot-icon a span::after, footer .ft-copyright a span::after {
+  content: "|";
+  margin-left: 8px;
+}
+
+footer .about-us a:hover, footer .ft-foot-icon a:hover, footer .ft-copyright a:hover {
+  color: #f33;
+}
+
+footer .ft-foot-icon {
+  background: url(../img/footer/foot_icons.jpg) no-repeat center center;
+  height: 40px;
+  padding-top: 30px;
+  position: relative;
+}
+
+footer .ft-foot-icon a {
+  display: inline-block;
+  width: 140px;
+  height: 40px;
+  position: absolute;
+}
+
+footer .ft-foot-icon a:nth-of-type(1) {
+  top: 24%;
+  left: 28%;
+}
+
+footer .ft-foot-icon a:nth-of-type(2) {
+  top: 24%;
+  left: 44%;
+}
+
+footer .ft-foot-icon a:nth-of-type(3) {
+  top: 24%;
+  left: 60%;
+}

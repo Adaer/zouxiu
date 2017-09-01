@@ -4,6 +4,7 @@
  *  time:2017年8月31日16:24:21
  */
 @import 'reset';
+@import 'common';
 
 // 头部外壳
 .top-wrap{
@@ -14,7 +15,11 @@
 	 	height: 34px;
 	 	margin: 0 auto;
 	 	padding-top: 10px;
-    	position: relative; 	
+    	position: relative; 
+    	&::after{
+    		@extend .clear;
+    	}	
+    		
 	 	ul{
 	 		float: left;
 	 		li{
@@ -162,7 +167,7 @@
 		    transform: translate(-50%, 0);	
 			li{
 				float: left;
-				position:relative;
+				// position:relative;
 				span{
 					display: block;
 				    font-size: 14px;
@@ -171,7 +176,63 @@
 				    border-left: #f7f7f7 1px solid;
 				    border-right: #f7f7f7 1px solid;
 				    border-top: #f7f7f7 1px solid;
+				    cursor:default;
+				    position: relative;
+    				z-index: 88;
 				}
+				dd{display: inline-block;}
+			}
+		}
+		.nav-list{
+			width: 600px;	
+			line-height: 20px;
+			padding-left: 10px;
+			overflow: hidden;
+    		-webkit-box-shadow: 1px 1px 2px #888;
+    		-moz-box-shadow: 1px 1px 2px #888;
+    		-ms-box-shadow: 1px 1px 2px #888;
+    		box-shadow: 1px 1px 2px #888;
+    		border: 1px solid #d7d7d7;
+		    background: #fff;
+		    position: absolute;
+		    left: 0;
+		    top: 43px;
+ 			display: none;
+		}
+		.nav-bag,.nav-clothing,.nav-Shoes,.nav-watch,.nav-acc,.nav-Cosmetics,.nav-life,.nav-baby,.nav-car{
+			.nav-bag-lt{
+				float: left;
+				width: 360px;
+    			margin-right: 15px;
+				dl{
+					border-bottom: 1px dotted #666;	
+					dt a{
+						font-weight: bold;
+    					line-height: 30px;	
+    					color: #333;
+					}
+					&:last-child{border-bottom: 0;}
+	    			dd:hover a{
+	    				color: #f33;
+	    			}					
+				}
+			}
+			.nav-bag-rt{
+			    float: right;
+    			width: 220px;
+				dt{
+					font-weight: bold;
+					line-height: 30px;	
+					color: #333;
+				}    			
+    			dd a{
+    				display: inline;
+    				float: left;
+    				width: 100px
+    			}
+    			dd a:hover{
+    				color: #f33;
+    			}	
 			}
 		}
 	}

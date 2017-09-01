@@ -6,15 +6,19 @@
  */
 require.config({
 	urlArgs: "bust=" +  (new Date()).getTime(),//(版本号)时间戳解决浏览器缓存问题
-	paths:{	//路径别名
+	paths:{	
+		//路径别名 注意路径基于data-main js文件的路径
 		jQuery:'../lib/jquery-3.2.1',
 		jQueryui:'../lib/jquery-ui-1.12.1/jquery-ui',
 		carouselJS:'../lib/Carousel/js/ObjCarousel',
-		zoomImg:'../lib/Magnifier/js/Magnifier'
+		zoomImg:'../lib/Magnifier/js/Magnifier',
+		headJS:'./header',
+		footJS:'./footer'
 	},
 	shim:{
 		jQueryui:['jQuery'],
 		carouselJS:['jQuery'],
-		header:['jQuery']
+		headJS:['jQuery'],
+		footJS:['jQuery']
 	}
 });
