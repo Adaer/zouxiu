@@ -87,6 +87,33 @@ input {
   zoom: 1;
 }
 
+.uls-sty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+}
+
+.look-more {
+  display: block;
+  width: 120px;
+  height: 30px;
+  border: 1px solid #888;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 31px;
+  margin: 30px auto;
+  transition: 0.3s 0.1s linear;
+}
+
+.look-more:hover {
+  color: #f33;
+}
+
 /*全局公共样式*/
 .ft-wrap {
   min-height: 120px;

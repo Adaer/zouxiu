@@ -11,14 +11,13 @@ require.config({
 		jQuery:'../lib/jquery-3.2.1',
 		jQueryui:'../lib/jquery-ui-1.12.1/jquery-ui',
 		carouselJS:'../lib/Carousel/js/ObjCarousel',
+		commonJS:'../lib/myCommon',
 		zoomImg:'../lib/Magnifier/js/Magnifier',
 		headJS:'./header',
-		footJS:'./footer'
 	},
 	shim:{
 		jQueryui:['jQuery'],
 		carouselJS:['jQuery'],
 		headJS:['jQuery'],
-		footJS:['jQuery']
 	}
 });

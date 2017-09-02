@@ -87,6 +87,33 @@ input {
   zoom: 1;
 }
 
+.uls-sty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+}
+
+.look-more {
+  display: block;
+  width: 120px;
+  height: 30px;
+  border: 1px solid #888;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 31px;
+  margin: 30px auto;
+  transition: 0.3s 0.1s linear;
+}
+
+.look-more:hover {
+  color: #f33;
+}
+
 /*全局公共样式*/
 /**	
  *  header css
@@ -174,6 +201,33 @@ input {
   display: block;
   visibility: hidden;
   zoom: 1;
+}
+
+.uls-sty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+}
+
+.look-more {
+  display: block;
+  width: 120px;
+  height: 30px;
+  border: 1px solid #888;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 31px;
+  margin: 30px auto;
+  transition: 0.3s 0.1s linear;
+}
+
+.look-more:hover {
+  color: #f33;
 }
 
 /*全局公共样式*/
@@ -534,6 +588,33 @@ input {
   zoom: 1;
 }
 
+.uls-sty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+}
+
+.look-more {
+  display: block;
+  width: 120px;
+  height: 30px;
+  border: 1px solid #888;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 31px;
+  margin: 30px auto;
+  transition: 0.3s 0.1s linear;
+}
+
+.look-more:hover {
+  color: #f33;
+}
+
 /*全局公共样式*/
 .ft-wrap {
   min-height: 120px;
@@ -757,4 +838,191 @@ footer .ft-foot-icon a:nth-of-type(2) {
 footer .ft-foot-icon a:nth-of-type(3) {
   top: 24%;
   left: 60%;
+}
+
+section {
+  margin-top: 1px;
+}
+
+#footer {
+  border-top: 3px solid #888;
+}
+
+.wrap .top-banner {
+  padding-top: 24px;
+}
+
+.wrap .top-banner .slideshow {
+  z-index: -10;
+}
+
+.wrap .container {
+  width: 1200px;
+  margin: 0 auto;
+  /* 首页快捷入口 */
+  /* 最新板块  */
+  /* 尖货推荐 */
+  /* 热荐专题 */
+  /* 发现好货  */
+}
+
+.wrap .container .new-msg {
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  padding-top: 10px;
+}
+
+.wrap .container .new-msg a {
+  display: inline-block;
+  width: 300px;
+  background: url(../img/home/shortcut3a.jpg) no-repeat;
+}
+
+.wrap .container .new-msg a:nth-of-type(1) {
+  background-position: 56px 0;
+}
+
+.wrap .container .new-msg a:nth-of-type(2) {
+  background-position: -200px 0;
+}
+
+.wrap .container .new-msg a:nth-of-type(3) {
+  background-position: -432px 0;
+}
+
+.wrap .container .new-msg a:nth-of-type(4) {
+  background-position: -686px 0;
+}
+
+.wrap .container .new-msg a:hover {
+  transition: 0.5s 0.1s ease;
+  -webkit-transform: translateX(-15px);
+  -moz-transform: translateX(-15px);
+  -o-transform: translateX(-15px);
+  transform: translateX(-15px);
+}
+
+.wrap .container .special-in .new-goods {
+  position: relative;
+  overflow: hidden;
+}
+
+.wrap .container .special-in .new-goods h3 {
+  padding: 20px 0;
+}
+
+.wrap .container .special-in .new-goods h3 img {
+  margin: 0 auto;
+}
+
+.wrap .container .special-in .new-goods a {
+  display: inline-block;
+  width: 600px;
+  height: 300px;
+  overflow: hidden;
+  float: left;
+  transition: all 0.3s 0.1s ease;
+}
+
+.wrap .container .special-in .new-goods a:nth-of-type(1) p {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+}
+
+.wrap .container .special-in .new-goods a:nth-of-type(2) p {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+}
+
+.wrap .container .special-in .new-goods a :nth-child(1):hover {
+  transition: all 0.3s 0.1s ease;
+  transform: scale(1.05);
+}
+
+.wrap .container .recommend h3 {
+  padding: 20px 0;
+}
+
+.wrap .container .recommend h3 img {
+  margin: 0 auto;
+}
+
+.wrap .container .recommend ul li {
+  padding: 5px 0;
+  transition: 0.3s 0.1s linear;
+}
+
+.wrap .container .recommend ul li:hover {
+  opacity: 0.8;
+}
+
+.wrap .container .sohot h3 {
+  padding: 20px 0;
+}
+
+.wrap .container .sohot h3 img {
+  margin: 0 auto;
+}
+
+.wrap .container .sohot ul li {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.wrap .container .sohot ul li a p {
+  position: absolute;
+}
+
+.wrap .container .sohot ul li:nth-of-type(1) a p {
+  top: 37%;
+  left: 20%;
+}
+
+.wrap .container .sohot ul li:nth-of-type(2) a p {
+  top: 37%;
+  left: 25%;
+}
+
+.wrap .container .sohot ul li:nth-of-type(3) a p {
+  top: 37%;
+  left: 30%;
+}
+
+.wrap .container .sohot ul li:nth-of-type(4) a p {
+  top: 37%;
+  left: 3%;
+}
+
+.wrap .container .sohot ul li:nth-of-type(5) a p {
+  top: 37%;
+  left: 1%;
+}
+
+.wrap .container .sohot ul li:nth-of-type(6) a p {
+  top: 37%;
+  left: 25%;
+}
+
+.wrap .container .sohot ul a:hover {
+  transition: all 0.3s 0.1s linear;
+  opacity: 0.8;
+}
+
+.wrap .container .found-goods h3 {
+  padding: 30px 0;
+}
+
+.wrap .container .found-goods h3 img {
+  margin: 0 auto;
+}
+
+.wrap .container .found-goods ul li {
+  margin-bottom: 14px;
+}
+
+.wrap .container .found-goods li:hover {
+  outline: 2px solid #888;
 }
