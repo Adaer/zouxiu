@@ -23,9 +23,9 @@
 	$connect->set_charset('utf8');
 	//接收前端数据 用于用户数据查询 密码修改	
 	$tel = isset($_GET['reg_phone']) ? $_GET['reg_phone'] : '';
-	$password = isset($_GET['reg_pwd']) ? $_GET['reg_pwd'] : '';
+	// $password = isset($_GET['reg_pwd']) ? $_GET['reg_pwd'] : '';
 	//md5加密
-	$password = md5($password);
+	// $password = md5($password);
 
 	//查询数据库
 	$sql = "select * from reguser ";
@@ -39,15 +39,15 @@
 	//判断前端出来的值是否在数据库中存在
 	if($len>0){
 		
-		echo "true";
+		echo "exist";
 		die();
 	}
 	else{
 		//写入数据库
-		$wirteSQL = "insert into reguser(tel,password) values('$tel','$password')";
+		$wirteSQL = "insert into reguser(tel) values('$tel')";//,'$password')";
 		$result2 = $connect->query($wirteSQL);
 		if($result2){
-			echo "false";
+			echo "writeOK";
 		}
 	}
 

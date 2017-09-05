@@ -25,6 +25,13 @@
 	-ms-flex-flow: wrap;
 	flex-flow: wrap;
 }
+//图片放大效果
+.scaleImg:hover{
+	-webkit-transform:scale(1.05);
+	-moz-transform:scale(1.05);
+	-o-transform:scale(1.05);
+	transform:scale(1.05);
+}
 .look-more{
     display: block;
     width: 120px;
@@ -39,4 +46,28 @@
 .look-more:hover{
 	color:#f33;
 }
+
+
+//注册时 验证码提示 图标
+.vcode-tips-acc{
+	background: url(../img/reg/login_sprite.png) no-repeat -220px 0 ;
+}
+.vcode-tips-err{
+	background: url(../img/reg/login_sprite.png) no-repeat -261px 0 ;
+}
+
+
+//注册 登录页 登录注册标题切换
+.login-bg .shell h2 a.bd-line-dk{
+	color: #333;
+	border-bottom: 2px solid #666;	
+}
+.login-bg .shell h2 a.bd-line-fd{
+	color: #888;
+	border-bottom: 0 none;
+}
+
+
+
+
 /*全局公共样式*/

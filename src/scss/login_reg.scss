@@ -1,0 +1,275 @@
+/**	
+ *  header css
+ *  by:lfping
+ *  time:2017年9月4日09:59:03
+ */
+@import 'reset';
+@import 'common';
+
+header{
+	width: 100%;
+	div{
+		width: 1200px;
+		margin: 0 auto;
+		padding-top: 10px;
+		a{display: inline-block;}
+	}
+}
+section{
+	width: 100%;
+	background: #f7f2ec;
+	.wrap{
+		width: 1200px;
+		margin: 0 auto;
+		position:relative;
+		.login-bg{
+			height: 700px;
+    		margin: 15px 0;
+			background: url(../img/reg/login_bg.jpg) no-repeat;
+		}
+		.shell{
+		    position: absolute;
+		    right: 30px;	
+		    width: 410px;
+			height: 580px;
+   	 		background: #fff;
+   		 	margin: 36px 0;
+   		 	box-shadow: 1px 1px 10px #666;
+   		 	h2{
+			    height: 50px;
+			    line-height: 50px;
+			    font-weight: normal;	
+   		 		background: #e7e7e7;
+   		 		display: flex;
+    			justify-content: space-between;
+			    a{
+				    display: inline-block;
+			        width: 50%;
+				    height: 48px;
+				    color: #333;	
+				    text-align: center;
+				    border-bottom: 2px solid #666;
+			    }
+			    a:nth-child(2){
+			    	color: #888;
+    				border-bottom: 0 none;	
+			    }
+			    a:hover{
+			    	color: #333!important;
+    				border-bottom: 2px solid #666!important;	
+			    }
+   		 	}
+   		 	.reg_phone_type{
+   		 	    padding: 0px 40px;
+   		 	    display: block;
+   		 	    input:hover{border-color:#f88;}
+   		 	    li{
+   		 	        margin: 24px 0;
+    				label{
+					    color: #888;
+					    background: #fff;	
+    				}
+    				input{
+					    width: 245px;
+					    height: 34px;
+					    color: #555;
+					    margin: 0 auto;
+					    padding-left: 6px;
+    					border: 1px solid #ddd;
+    				}
+   		 	    }
+   		 	    li:nth-of-type(1){
+
+   		 	    	.phone_tips{
+						display: none;
+   		 	    		&::before{
+   		 	    			content:"";
+   		 	    			display: inline-block;
+   		 	    			vertical-align: middle;
+   		 	    			padding: 8px;
+   		 	    			background:url(../img/reg/login_sprite.png) no-repeat -199px 0;
+   		 	    		}
+   		 	    	}
+   		 	    }
+   		 	    li:nth-of-type(2){
+   		 	     	display: none;
+   		 	     	position:relative;
+   		 	     	input{
+   		 	     		width:130px;
+   		 	     	}
+   		 	     	span{
+ 						display:inline-block;
+				    	width: 16px;
+				    	height: 16px;
+					    position: absolute;
+					    top: 50%;
+					    left: 35%;						 	     		
+   		 	     	}
+   		 	     	#vcode{
+					    width: 112px;
+					    height: 36px;
+					    background: #888;
+					    float: right;
+					    margin-right: 76px;
+   		 	     	}
+   		 	     }
+   		 	    li:nth-of-type(3){
+    				#msg_vcode{
+    					width: 130px;
+    				}
+   		 	    	a{
+					    display: inline-block;
+					    width: 112px;
+					    height: 36px;
+					    background: #ddd;
+					    line-height: 34px;
+					    text-align: center;
+					    color: #333;   		 	    		
+   		 	    	}
+   		 	    }
+   		 	    li:nth-of-type(4){
+					text-align: right;
+					a:hover{text-decoration: underline;}
+   		 	    }	
+   		 	}
+   		 	.login_type{
+   		 		@extend .reg_phone_type;
+   		 		display: none;
+   		 		li:nth-of-type(2){
+   		 			display: block;
+   		 			input{
+   		 				width: 245px;
+   		 			}
+   		 		}
+   		 		li:nth-of-type(3){
+					.login_tips{
+						display: none;
+						em{
+							display: inline-block;
+						    width: 20px;
+						    height: 13px;
+						    vertical-align: middle;
+						    background: url(../img/reg/login_sprite.png) no-repeat -196px 0;
+						}
+						p{
+							display: inline-block;
+							vertical-align: middle;
+						}
+					}
+   		 		}
+   		 	}
+   		 	.login_reg{
+   		 		text-align: center;
+   		 		input{
+					background: #c60000;
+				    color: #fff;
+				    width: 300px;
+				    height: 40px;
+				    border-radius: 30px;  
+				    cursor:pointer; 
+				    transition:0.3s linear;		 			
+   		 		}
+   		 		input:nth-of-type(2){
+   		 			display: none;
+   		 		}
+   		 		input:hover{background: #B3031A;}
+   		 	}
+   		 	.hezuo{
+   		 		padding: 0px 40px;
+    			margin-top: 20px;
+    			.under_line{
+    				position: relative;
+				    height: 1px;
+				    border-bottom: 1px solid #ddd;
+				    margin-bottom: 20px;
+				    p{
+						position: absolute;
+					    left: 50%;
+					    top: -7px;
+					    background: #fff;
+					    transform: translate(-50%,0);
+					    padding: 0 15px;				    	
+				    }
+    			}
+   		 		.hezuo_icon{
+	 			    display: flex;
+					justify-content: space-around;
+   		 			a{
+   		 				display: inline-block;
+   		 				width: 30px;
+   		 				height: 30px;
+   		 				background:url(../img/reg/login_sprite.png) no-repeat;
+   		 				opacity:0.5;	
+   		 				&:nth-of-type(1){
+   		 					background-position: 0 0;
+   		 				}   		 				
+   		 				&:nth-of-type(2){
+   		 					background-position: -30px 0;
+   		 				}   		 				
+   		 				&:nth-of-type(3){
+   		 					background-position: -60px 0;
+   		 				}   		 				
+   		 				&:nth-of-type(4){
+   		 					background-position: -90px 0;
+   		 				}   		 				
+   		 				&:nth-of-type(5){
+   		 					background-position: -120px 0;
+   		 				}
+   		 			}
+   		 			a:hover{opacity:1;}
+   		 		}
+   		 		.QRcode{
+				    text-align: right;
+				    position: absolute;
+				    right: -2px;
+				    bottom: -1%;   		 			
+   		 			a{
+			 			display: inline-block;
+			 			width: 88px;
+			 			height: 30px;
+			 			background:url(../img/reg/login_sprite.png) no-repeat;  
+			 			&:nth-of-type(1){
+   		 					background-position: 0px -356px;
+						    margin-bottom: 5px;
+						    margin-right: -18px;
+   		 				}   		 				
+   		 				&:nth-of-type(2){
+							    width: 70px;
+							    height: 60px;
+   		 					    background-position: 8px -401px;
+   		 				} 
+		 			}		 			
+   		 		}
+   		 	}
+		}
+	}
+}
+
+footer{
+	padding: 40px 0;	
+	a:hover{text-decoration: underline;}
+	div{
+		width: 1200px;
+	    margin: 0 auto;
+	    text-align: center;
+	    padding-bottom: 15px;	
+	    a b{padding: 0 10px;}
+	}
+	p{
+	    width: 1200px;
+	    margin: 0 auto;
+	    text-align: center;
+	    color: #888;		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

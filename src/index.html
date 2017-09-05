@@ -16,10 +16,11 @@
 <body>
 	<header id="header"></header>
 	<section class="wrap">
-		<div class="top-banner">
-			<div class="slideshow"></div>
-		</div>
 		<div class="container">
+		<!-- 首页轮播图 -->
+			<div class="top-banner">
+				<div class="slideshow"></div>
+			</div>
 		<!-- 首页 快捷入口 -->
 			<div class="new-msg">
 				<a href="javascript:;" target="_blank"></a>
@@ -33,22 +34,37 @@
 				<div class="new-goods">
 					<h3><img src="./img/home/topic_za.jpg" alt=""></h3>
 					<a href="#" target="_blank">
-						<img src="./img/index/default.jpg" data-src="./img/home/zuixin_01.jpg" alt="">
+						<img src="./img/index/default.jpg" data-src="./img/home/zuixin_01.jpg" class="scaleImg" alt="">
 						<p><img src="img/home/zuixin_01.png" alt=""></p>
 					</a>
 					<a href="#" target="_blank">
-						<img src="./img/index/default.jpg" data-src="./img/home/zuixin_02.jpg" alt="">
+						<img src="./img/index/default.jpg" data-src="./img/home/zuixin_02.jpg" class="scaleImg" alt="">
 						<p><img src="img/home/zuixin_02.png" alt=""></p>
 					</a>					
 				</div>
 				<!--  尖货推荐 分类-->
-				<div class="recommend"></div>
+				<div class="recommend" id="jhFloor"></div>
 				<!-- 热荐专题 -->
 				<div class="sohot"></div>
 				<!-- 豪车入口 -->
-				<div class="luxury-car"><a href="#" target="_blank"><img src="./img/index/default.jpg" data-src="./img/home/autoa.jpg" alt=""></a></div>
+				<div class="luxury-car">
+					<a href="#" target="_blank">
+						<img src="./img/index/default.jpg" data-src="./img/home/autoa.jpg" alt="">
+					</a>
+				</div>
 				<!-- 发现好货 -->
 				<div class="found-goods"></div>
+				<!-- 右侧导航 -->
+				<div class="right-nav">
+					<img src="./img/home/righta.png" alt="" usemap="#Mapnav">
+					<map name="Mapnav">
+						<area shape="rect" coords="8,110,110,150" href="#jhFloor" alt="">
+						<area shape="rect" coords="9,219,111,253" href="javascript:;" alt="">
+						<area shape="rect" coords="9,184,111,218" href="javascript:;" alt="">
+						<area shape="rect" coords="8,151,111,184" href="javascript:;" alt="">
+						<area shape="rect" coords="10,253,112,301" href="#header" alt="">
+					</map>
+				</div>
 			</div>
 		</div>
 	</section>
