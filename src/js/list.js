@@ -1,0 +1,126 @@
+/**	
+ *  header js
+ *  by:lfping
+ *  time:2017年9月5日09:33:44
+ *  log:网站男装 列表页 js
+ */
+
+
+require(['config','../lib/jquery-3.2.1'],function(){
+		//引入头部 尾部 由于代码执行顺序问题，要先加载页面
+		$("#header").load("../html/header.html header");
+		$("#footer").load("../html/footer.html footer");
+
+	require(['headJS','commonJS'],function(){
+		//请求后台数据
+		//默认请求数据
+		var $pageNo = 1;
+		var $qty = 24;
+		var $goodsWrap = $(".container");
+		$.ajax({
+			url:"../api/shopdata.php",
+			data:{
+				pageNo:$pageNo,
+				qty:$qty
+			},
+			success:function(res){
+				ajaxRes(res);
+			}
+		})
+
+		//点击标签 翻页
+		$goodsWrap.on("click",".tips span",function(){
+			$(this).addClass("actives").siblings().removeClass("actives");
+			//更新pageNo 用于请求
+			$pageNo = $(this).text();
+
+			$.ajax({
+				url:"../api/shopdata.php",
+				data:{
+					pageNo:$pageNo,
+					qty:$qty					
+				},
+				success:function(res){
+					ajaxRes(res);
+					// window.location.reload(); 如何刷新页面 (方法2：返回到顶部)
+				}
+			})
+		})
+
+		function ajaxRes(res){
+				var resData = res;
+				try{
+					resData = JSON.parse(res);
+				}catch(error){
+					console.log("error")
+				}
+				var $uls = $("<ul/>");
+				var $tips = $("<div/>").addClass("tips");
+
+				//分页数量
+				var lenPage = Math.ceil(resData.total / resData.qty);
+				//生成分页标签 从1开始
+				for(let i=1;i<=lenPage;i++){
+					var $spans = $("<span/>");
+					$spans.html(i);
+					if(i == $pageNo){
+						$spans.addClass("actives");
+					}
+					$tips.append($spans);
+				}
+
+				//遍历数据 生成结构
+				var res = resData.data.map(function(dom){
+					
+					var sizeArr = dom.size.split(" ");
+					var resss = sizeArr.map(function(ele){
+							return `<span>${ele}</span>`
+						}).join("")
+						
+
+					if(dom.discount !== "10"){
+						var discounts = `限时${dom.discount}折`; 
+					}
+					if(discounts == undefined){
+						discounts = ""	
+					}
+					var price = parseInt((dom.cost * (dom.discount/10))).toFixed(2);
+					return `
+						<li data-guid="${dom.guid}">
+							<a href="./details.html?" target="_blank">
+								<img src="../img/list/bg/default.jpg" data-src="${dom.imgurl}">
+							</a>
+							<div class="count">${discounts}</div>
+							<div class="size_tab">${resss}</div>
+							<h4>${dom.brand}</h4>
+							<p><a href="#">${dom.type}</a></p>
+							<div class="price"><span>${price}</span><del>${dom.cost}</del></div>
+						</li>
+					`
+				})
+				$goodsWrap.html("");
+				$uls.html(res);
+				$goodsWrap.append($uls,$tips);	
+
+				//图片懒加载
+				var n = 0;
+				var	imgs = $("img");
+				var	imgNum = $("img").length;		
+				
+				$(window).scroll(imgLoad);
+				function imgLoad(){
+					for(var i = n;i<imgNum;i++){
+						if(imgs.eq(i).offset().top < parseInt($(window).height()) + parseInt($(window).scrollTop())){
+
+							if(imgs.eq(i).attr("src").indexOf('default') >= 0){
+								var src = imgs.eq(i).attr("data-src");
+								imgs.eq(i).attr("src",src);
+								n = i + 1;
+							}
+						}
+					}
+				}					
+		}
+
+	})
+})

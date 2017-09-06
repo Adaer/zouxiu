@@ -1,6 +1,8 @@
 <?php 
 /*
-	获取笔记本商品列表页数据
+	获取男装数据
+	 *可查ID
+	 *可分页请求
 */
 	$servername = 'localhost';
 	$username = 'root';
@@ -15,13 +17,13 @@
 	//设置请求到的数据编码
 	$connect->set_charset('utf8');
 	//获取到ID
-	$id = isset($_GET['id']) ? $_GET['id'] : '';
+	$id = isset($_GET['guid']) ? $_GET['guid'] : '';
 
 	//查找数据库中所需数据字段名 *匹配所有
-	$sql = "select id,imgurl,salePrice,title,price,sales,evaluate,shopname,tradingval from shopdata";
+	$sql = "select guid,brand,type,cost,discount,size,imgurl from mancloth";
 	//查找指定id
 	if($id){
-		$sql .="Where id = '$id'";
+		$sql .="Where guid = '$id'";
 	}
 	//查找指定id的数据库
 	$result = $connect->query($sql);

@@ -8,6 +8,7 @@
 
 //自定义模块化加载 引入jQ jQui
 define(['config'],function(){
+	
 	//顶部 个人信息 显示隐藏
 	var $topMyshow = $('.top-myshow');
 	//给隐藏的个人信息 设置宽度
@@ -16,27 +17,27 @@ define(['config'],function(){
 	$topMyshow.parent('li').on('mouseenter',function(){
 		$(this).css({
 			background:"#fff",
-			borderRight: "1px solid #e6e6e6",
-			borderLeft: "1px solid #e6e6e6",
-			borderTop: "1px solid #e6e6e6"
+			border: "1px solid #e6e6e6"
 		}).children('a').css({
 			color:"#f33"
 		});
-		$topMyshow.next().stop().show();
+		$topMyshow.next().show();
 	})
 	.on('mouseleave',function(){
 		var time = setTimeout(function(){
 			$topMyshow.parent('li').css({
 				background:"#333",
-				borderRight: "1px solid #333",
-				borderLeft: "1px solid #333",
-				borderTop: "1px solid #333"
+				border: "1px solid #333"
+
 			}).children('a').css({
 				color:"#e6e6e6"
 			});		
-			$topMyshow.next().stop().hide();
+			$topMyshow.next().hide();
 		},200);
 	});
+
+
+
 	//顶部搜索框特效
 	var $topSeach = $(".top-seach");
 	$topSeach.children("#top-keywd").focus(function(){
@@ -91,7 +92,10 @@ define(['config'],function(){
 			})			
 		})
 	});
-	/*页脚JS*/
+
+
+
+	/*--------------页脚JS--------------*/
 	//关税说明显示隐藏
 	$('.ft-state').on("mouseenter",function(){
 		$(this).children('.tariffs-box').stop().fadeIn(200)
