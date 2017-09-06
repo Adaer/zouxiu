@@ -1,6 +1,6 @@
 <?php 
 //前端发送过来的请求 id
-	$goodsId = isset($_GET['id']) ? $_GET['id'] : '';
+	$goodsId = isset($_GET['guid']) ? $_GET['guid'] : '';
 /*
 	获取笔记本商品列表页数据
 */
@@ -19,7 +19,7 @@
 
 
 	//查找数据库中所需数据字段名 *匹配所有
-	$sql = "select id,imgurl,salePrice,title,price,sales,evaluate,shopname,tradingval from shopdata";
+	$sql = "select id,brand,type,cost,discount,size,product,colors,comment,imgS,imgM,imgL from mancloth";
 	
 	//->query 执行查寻数据库内容 返回给$result
 	$result = $connect->query($sql);

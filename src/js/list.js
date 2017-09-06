@@ -11,7 +11,7 @@ require(['config','../lib/jquery-3.2.1'],function(){
 		$("#header").load("../html/header.html header");
 		$("#footer").load("../html/footer.html footer");
 
-	require(['headJS','commonJS'],function(){
+	require(['headJS'],function(){
 		//请求后台数据
 		//默认请求数据
 		var $pageNo = 1;
@@ -30,23 +30,31 @@ require(['config','../lib/jquery-3.2.1'],function(){
 
 		//点击标签 翻页
 		$goodsWrap.on("click",".tips span",function(){
+			//高亮当前标签
 			$(this).addClass("actives").siblings().removeClass("actives");
-			//更新pageNo 用于请求
-			$pageNo = $(this).text();
+			//禁止同一按钮重复请求
+			if($pageNo == $(this).text()){
+				return;
+			}else{
+				//更新pageNo 用于请求
+				$pageNo = $(this).text();
+				$.ajax({
+					url:"../api/shopdata.php",
+					data:{
+						pageNo:$pageNo,
+						qty:$qty					
+					},
+					success:function(res){
+						ajaxRes(res);
+						// window.location.reload(); 如何刷新页面 (方法2：返回到顶部)
+					}
+				})								
+			}
 
-			$.ajax({
-				url:"../api/shopdata.php",
-				data:{
-					pageNo:$pageNo,
-					qty:$qty					
-				},
-				success:function(res){
-					ajaxRes(res);
-					// window.location.reload(); 如何刷新页面 (方法2：返回到顶部)
-				}
-			})
+
+
 		})
-
+		//将结果 封装出来 以便重复调用
 		function ajaxRes(res){
 				var resData = res;
 				try{
@@ -56,7 +64,7 @@ require(['config','../lib/jquery-3.2.1'],function(){
 				}
 				var $uls = $("<ul/>");
 				var $tips = $("<div/>").addClass("tips");
-
+					$tips.attr("onselectstart","return false");
 				//分页数量
 				var lenPage = Math.ceil(resData.total / resData.qty);
 				//生成分页标签 从1开始
@@ -86,8 +94,8 @@ require(['config','../lib/jquery-3.2.1'],function(){
 					}
 					var price = parseInt((dom.cost * (dom.discount/10))).toFixed(2);
 					return `
-						<li data-guid="${dom.guid}">
-							<a href="./details.html?" target="_blank">
+						<li data-guid="${dom.id}">
+							<a href="./details.html?idx=${dom.id}" target="_blank">
 								<img src="../img/list/bg/default.jpg" data-src="${dom.imgurl}">
 							</a>
 							<div class="count">${discounts}</div>
@@ -122,5 +130,12 @@ require(['config','../lib/jquery-3.2.1'],function(){
 				}					
 		}
 
+		//右侧悬浮效果
+		var $aside = $(".aside"),
+		frShut = $aside.children(".fr_shut");
+
+		frShut.click(function(){
+			$aside.fadeOut(200)
+		})
 	})
 })

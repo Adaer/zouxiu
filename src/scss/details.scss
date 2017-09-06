@@ -1,0 +1,120 @@
+/**	
+ *  详情页 css
+ *  by:lfping
+ *  time:2017年9月6日15:16:59
+ *  type:男装 详情页
+ */
+@import 'reset';
+@import 'common';
+@import 'header';
+@import 'footer';
+
+section{
+	margin-top: 1px;
+	padding-bottom: 50px;	
+	 .wrap{
+		width:1000px;
+		margin: 0 auto; 
+	}
+}
+/* top 广告 导航 */
+.top_adv{
+	.nav_min{
+	    height: 54px;
+	    line-height: 54px;
+	    position: relative;	
+	    border-bottom: 1px solid #ccc;
+	    span:nth-of-type(1){
+	    	padding-left: 16px;
+	    	background: url(../img/list/bg/icon.png) no-repeat 5px 5px;
+	    }	
+	   a{
+	    	color: #00579D;
+	    }
+	    span:nth-of-type(2),span:nth-of-type(3){
+		    display: inline-block;
+		    padding: 10px;
+		    vertical-align: middle;	
+		    background: url(../img/list/bg/jts.jpg) no-repeat 8px 2px;    	
+	    }
+	   a:nth-of-type(2){
+			display: inline;
+	    }
+	    p:nth-of-type(1){
+			position: absolute;
+		    right: 20px;
+		    top: 0;
+		    span{
+		    	color: #f33;
+		    	padding: 0 4px;
+		    	background: none;
+		    }
+	    }
+	}
+}
+
+
+// 右侧悬浮
+.aside{
+	position: fixed;
+    left: 50%;
+    top: 30%;
+    width: 69px;
+    background: #fff;
+    margin-left: 600px;
+	.fr_shut{
+	    display: inline-block;
+	    width: 67px;
+	    height: 30px;
+	    line-height: 30px;
+	    text-align: center;
+	    color: #f33;
+	    border: 1px solid #dfdfdf;
+	    cursor: pointer;
+	}
+	.fr_shut:hover{
+		background: #f33;
+		color: #fff;
+	}
+	.fr_list{
+		overflow: hidden;
+    	zoom: 1;
+		a{
+		    display: inline-block;
+		    width: 69px;
+		    height: 53px;
+		    background: url(../img/list/bg/r_menu_bg.jpg) no-repeat;
+		    float: left;
+		}
+		a:nth-of-type(1){
+			background-position: 0 0;
+		}
+		a:nth-of-type(2){
+			background-position: 0 -56px;
+			position:relative;
+			.goods_num{
+				position: absolute;
+			    right: 10px;
+			    top: 5px;
+			    display: inline-block;
+			    width: 18px;
+			    height: 18px;
+			    line-height: 18px;
+			    text-align: center;
+			    background: rgba(220,20,60,.8);
+			    color: #fff;
+			    border-radius: 50%;
+			}
+		}
+		a:nth-of-type(3){
+			background-position: 0 -114px;
+		}
+		a:nth-of-type(4){
+		    background-position: 0px -171px;
+		    height: 59px;			
+		}
+		a:hover{
+			background-position-x: -68px;
+		}
+	}
+} 

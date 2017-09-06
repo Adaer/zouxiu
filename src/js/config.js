@@ -14,6 +14,7 @@ require.config({
 		codeVerify:'../lib/gVerify',
 		commonJS:'../lib/myCommon',
 		zoomImg:'../lib/Magnifier/js/Magnifier',
+		Magnifier:'../lib/magnifier',
 		headJS:'./header'
 	},
 	shim:{

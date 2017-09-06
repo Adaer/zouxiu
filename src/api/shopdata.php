@@ -20,7 +20,7 @@
 	$id = isset($_GET['guid']) ? $_GET['guid'] : '';
 
 	//查找数据库中所需数据字段名 *匹配所有
-	$sql = "select guid,brand,type,cost,discount,size,imgurl from mancloth";
+	$sql = "select id,brand,type,cost,discount,size,imgurl from mancloth";
 	//查找指定id
 	if($id){
 		$sql .="Where guid = '$id'";

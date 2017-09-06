@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /**	
- *  header css
+ *  列表页 css
  *  by:lfping
  *  time:2017年9月5日09:32:40
  *  type:男装列表页
@@ -915,9 +915,6 @@ footer .ft-foot-icon a:nth-of-type(3) {
   left: 60%;
 }
 
-/* 
-	guid	brand	type	cost	discount	imgurl	size
- */
 section {
   margin-top: 1px;
   padding-bottom: 50px;
@@ -1335,4 +1332,78 @@ section .wrap {
 .container .tips span.actives {
   border-color: #FF6602;
   color: #FF6602;
+}
+
+.aside {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  width: 69px;
+  background: #fff;
+  margin-left: 600px;
+}
+
+.aside .fr_shut {
+  display: inline-block;
+  width: 67px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #f33;
+  border: 1px solid #dfdfdf;
+  cursor: pointer;
+}
+
+.aside .fr_shut:hover {
+  background: #f33;
+  color: #fff;
+}
+
+.aside .fr_list {
+  overflow: hidden;
+  zoom: 1;
+}
+
+.aside .fr_list a {
+  display: inline-block;
+  width: 69px;
+  height: 53px;
+  background: url(../img/list/bg/r_menu_bg.jpg) no-repeat;
+  float: left;
+}
+
+.aside .fr_list a:nth-of-type(1) {
+  background-position: 0 0;
+}
+
+.aside .fr_list a:nth-of-type(2) {
+  background-position: 0 -56px;
+  position: relative;
+}
+
+.aside .fr_list a:nth-of-type(2) .goods_num {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  background: rgba(220, 20, 60, 0.8);
+  color: #fff;
+  border-radius: 50%;
+}
+
+.aside .fr_list a:nth-of-type(3) {
+  background-position: 0 -114px;
+}
+
+.aside .fr_list a:nth-of-type(4) {
+  background-position: 0px -171px;
+  height: 59px;
+}
+
+.aside .fr_list a:hover {
+  background-position-x: -68px;
 }
