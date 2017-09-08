@@ -140,7 +140,16 @@ input {
   border-bottom: 0 none;
 }
 
-/*全局公共样式*/
+.fly-img {
+  width: 34px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
 header {
   padding-top: 20px;
 }
@@ -241,6 +250,7 @@ section .s_wrap .cart_box .cart_title {
   padding-left: 15px;
   position: relative;
   background: rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
 
 section .s_wrap .cart_box .cart_title input {
@@ -268,9 +278,140 @@ section .s_wrap .cart_box .cart_title span:nth-of-type(4) {
   left: 90%;
 }
 
+section .s_wrap .cart_box .cart_body ul li {
+  background: #FFF4E8;
+  overflow: hidden;
+  zoom: 1;
+  border-top: 1px solid #ccc;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_info {
+  width: 40%;
+  overflow: hidden;
+  float: left;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_info .select_this {
+  margin: 60px 70px 20px 30px;
+  float: left;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_info .img_box {
+  display: block;
+  float: left;
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_title {
+  float: left;
+  padding-top: 16px;
+  padding-left: 20px;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_title h4, section .s_wrap .cart_box .cart_body ul li .goods_title h5 {
+  font-weight: normal;
+  line-height: 24px;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_title h5 a:hover {
+  text-decoration: underline;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_title p span:nth-child(2) {
+  padding-left: 15px;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation {
+  float: right;
+  width: 40%;
+  height: 130px;
+  overflow: hidden;
+  zoom: 1;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .price_list {
+  padding: 30px 20px;
+  float: left;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .price_list del {
+  display: block;
+  color: #888;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .price_list del::before {
+  content: "￥";
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .price_list span {
+  line-height: 34px;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .price_list span::before {
+  content: "￥";
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_add {
+  float: left;
+  padding: 30px 20px;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_add p {
+  /* 去掉input number类型的 三角号 */
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_add p em {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  line-height: 15px;
+  text-align: center;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_add p em:hover {
+  border-color: #ff6022;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_add p input {
+  width: 40px;
+  height: 18px;
+  border: 1px solid #ccc;
+  margin: 0 5px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_add p input::-webkit-outer-spin-button,
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_add p input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_add p input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_remove {
+  float: right;
+  padding: 30px 46px;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_remove p:nth-of-type(2) {
+  text-align: center;
+  line-height: 34px;
+}
+
+section .s_wrap .cart_box .cart_body ul li .goods_operation .goods_remove a:hover {
+  color: #ff6022;
+}
+
 section .s_wrap .cart_box .cart_accounts {
   border-top: 1px solid #ccc;
-  margin-top: 10px;
   padding-left: 15px;
   padding-top: 10px;
   overflow: hidden;
@@ -375,6 +516,26 @@ section .s_wrap .cart_box .cart_accounts .cart_accounts_rt .pay_all {
   float: right;
   margin: 10px 5px;
   cursor: pointer;
+}
+
+section .s_wrap .nogoods {
+  margin-top: 20px;
+  height: 90px;
+  border: 1px solid #d6d3d3;
+  background: url(../img/cart/nogoods.jpg) no-repeat 195px 16px #F6F6F6;
+  display: none;
+}
+
+section .s_wrap .nogoods p {
+  line-height: 90px;
+  text-align: center;
+  font-size: 16px;
+}
+
+section .s_wrap .nogoods p a {
+  padding-left: 8px;
+  color: #ff6022;
+  text-decoration: underline;
 }
 
 section .s_wrap .collect {

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* CSS Document */
 .fl {
   float: left;
@@ -74,4 +73,12 @@
   border-bottom: 0 none;
 }
 
-/*全局公共样式*/
+.fly-img {
+  width: 34px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}

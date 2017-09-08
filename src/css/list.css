@@ -140,7 +140,16 @@ input {
   border-bottom: 0 none;
 }
 
-/*全局公共样式*/
+.fly-img {
+  width: 34px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
 /**	
  *  header css
  *  by:lfping
@@ -281,7 +290,16 @@ input {
   border-bottom: 0 none;
 }
 
-/*全局公共样式*/
+.fly-img {
+  width: 34px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
 .top-wrap {
   min-height: 92px;
   background: #333;
@@ -690,7 +708,16 @@ input {
   border-bottom: 0 none;
 }
 
-/*全局公共样式*/
+.fly-img {
+  width: 34px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
 .ft-wrap {
   min-height: 120px;
   background: #F2F2F2;

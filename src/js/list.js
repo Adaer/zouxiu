@@ -111,6 +111,7 @@ require(['config','../lib/jquery-3.2.1'],function(){
 				$goodsWrap.append($uls,$tips);	
 
 				//图片懒加载
+				//n = 0 不用从每一次都从第一张图片开始遍历 而是加载最新图片的那个位置开始
 				var n = 0;
 				var	imgs = $("img");
 				var	imgNum = $("img").length;		

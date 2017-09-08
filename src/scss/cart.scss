@@ -91,6 +91,7 @@ section .s_wrap{
 		    padding-left: 15px;
 		    position: relative;   		
 		    background: rgba(0,0,0,0.1);
+		    margin-bottom: 40px;
 		    input{
 		        vertical-align: middle;
     			margin-right: 6px;	
@@ -111,9 +112,120 @@ section .s_wrap{
 		    	left: 90%;
 		    }
     	}
+    	.cart_body{
+    		ul{
+    			li{
+					background: #FFF4E8;
+				    overflow: hidden;
+				    zoom: 1;
+				    border-top: 1px solid #ccc;    	
+    				.goods_info{
+					 	width: 40%;
+					    overflow: hidden;
+					    float: left;		
+    					.select_this{
+						    margin: 60px 70px 20px 30px;
+						    float: left;  			
+    					}   
+    					.img_box{
+						    display: block;
+						    float: left;
+						    border: 1px solid #ddd;
+						    margin: 20px 0;    						
+    					}					
+    				}
+    				.goods_title{
+    			    	float: left;
+					    padding-top: 16px;
+					    padding-left: 20px;		
+    					h4,h5{
+    						font-weight: normal;
+    						line-height: 24px;
+    					}
+    					h5 a:hover{
+    						text-decoration: underline;
+    					}
+    					p span:nth-child(2){
+    						padding-left: 15px;
+    					}
+    				}	
+    				.goods_operation{
+					 	float: right;
+					    width: 40%;
+					    height: 130px;
+					    overflow: hidden;
+					    zoom: 1; 
+					    .price_list{
+						    padding: 30px 20px;
+						    float: left;
+						    del{
+								display: block;
+							    color: #888;						    	
+						    }
+						    del::before{
+						    	content:"￥";
+						    }
+						    span{
+						    	line-height: 34px;
+						    }	
+						    span::before{
+						    	content:"￥";
+						    }			    	
+					    }  	
+					    .goods_add{
+							float: left;
+						    padding: 30px 20px;		
+						    p{
+						    	em{
+								    display: inline-block;
+								    width: 15px;
+								    height: 15px;
+								    background: #fff;
+								    vertical-align: middle;
+								    cursor: pointer;
+								    border: 1px solid #ccc;
+								    line-height: 15px;
+								    text-align: center;						    		
+						    	}
+						    	em:hover{
+						    		border-color: #ff6022;
+						    	}
+						    	input{
+								    width: 40px;
+								    height: 18px;
+								    border: 1px solid #ccc;
+								    margin: 0 5px;
+								    vertical-align: middle;
+								    text-align: center;						    		
+						    	}
+						    	/* 去掉input number类型的 三角号 */
+								input::-webkit-outer-spin-button,
+								input::-webkit-inner-spin-button{
+								    -webkit-appearance: none !important;
+								    margin: 0; 
+								}
+								input[type="number"]{
+									-moz-appearance:textfield;
+								}							    	
+						    }			    	
+					    }	
+					    .goods_remove{
+							float: right;
+						    padding: 30px 46px;	
+						    p:nth-of-type(2){
+								text-align: center;
+							    line-height: 34px;						    	
+						    }
+						    a:hover{
+						    	color: #ff6022;
+						    }				    	
+					    }			
+    				}		
+    			}
+    		}
+    	}
     	.cart_accounts{
 		    border-top: 1px solid #ccc;
-		    margin-top: 10px;
 		    padding-left: 15px;
 		    padding-top: 10px;
 		    overflow: hidden;   
@@ -205,6 +317,23 @@ section .s_wrap{
     		}	
     	}
 	}
+	.nogoods{
+	    margin-top: 20px;
+	    height: 90px;
+	    border: 1px solid #d6d3d3;  
+	    background: url(../img/cart/nogoods.jpg) no-repeat 195px 16px #F6F6F6;
+	    display: none;
+	    p{
+		    line-height: 90px;
+		    text-align: center;
+		    font-size: 16px;
+    		a{
+			    padding-left: 8px;
+			    color: #ff6022;
+			    text-decoration: underline;    			
+    		}	    	
+	    }		
+	}	
 	.collect{
 		padding: 20px 0;
 		h3{

@@ -10,15 +10,16 @@ require.config({
 		//路径别名 注意路径基于data-main js文件的路径
 		jQuery:'../lib/jquery-3.2.1',
 		jQueryui:'../lib/jquery-ui-1.12.1/jquery-ui',
+		lazyload:'../lib/jquery.lazyload.min',
 		carouselJS:'../lib/Carousel/js/ObjCarousel',
 		codeVerify:'../lib/gVerify',
 		commonJS:'../lib/myCommon',
-		zoomImg:'../lib/Magnifier/js/Magnifier',
-		Magnifier:'../lib/magnifier',
+		Magnifying:'../lib/Magnifier/js/Magnifier',
 		headJS:'./header'
 	},
 	shim:{
 		jQueryui:['jQuery'],
+		lazyload:['jQuery'],
 		carouselJS:['jQuery'],
 		headJS:['jQuery']
 	}
