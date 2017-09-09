@@ -78,4 +78,13 @@
     transform: translate(-50%,0);
     }
 
-
+//详情页 tab切换 吸顶
+.tab-change-fix{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 1000px;
+    background: #fff;	
+}

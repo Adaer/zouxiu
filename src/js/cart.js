@@ -21,7 +21,7 @@ require(['config','../lib/jquery-3.2.1'],function(){
  					<li>
  					<div class="goods_info">
  						<input type="checkbox" class="select_this" name="select_this" checked="checked">
- 						<a href="./details.html?idx=${item.id}" class="img_box">
+ 						<a href="./details.html?idx=${item.goodsid}" class="img_box">
  							<img src="${item.goodsimg}" onerror="this.src='/src/img/list/bg/default.66_88.jpg'" alt="">
  						</a>
  						<div class="goods_title">

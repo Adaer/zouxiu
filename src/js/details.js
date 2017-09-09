@@ -37,13 +37,13 @@ require(['config','../lib/jquery-3.2.1'],function(){
 		var cookies = document.cookie;
 		if(cookies.length > 0){
 			createCookie = JSON.parse(CookieMethd.get("goodsInfo"));
-			console.log(createCookie)
+			showCart();
 		}
-		showCart();
 		function showCart(){
+			createCookie = JSON.parse(CookieMethd.get("goodsInfo"));
 			var qty = 0;
 			createCookie.map(function(item){
-				console.log(item.goodsqty)
+				// console.log(item.goodsqty)
 				qty += item.goodsqty;
 				$("#cart_bag").children().html(qty);
 			})
@@ -75,18 +75,18 @@ require(['config','../lib/jquery-3.2.1'],function(){
 					
 					cookObj.goodsimg = imgS[0];//cookie 商品缩略图
 
-					var imgS_res = imgS.map(function(ele){
-						return `<li><a href="javascript:;"><img src="${ele}" onerror="this.src='/src/img/list/bg/default.66_88.jpg'" alt=""></a></li>`
+					var imgS_res = imgS.map(function(ele,i){
+						return `<li><a href="javascript:;"><img src="${ele}" data-mgimg="${imgM[i]}" data-bgimg="${imgL[i]}" onerror="this.src='/src/img/list/bg/default.66_88.jpg'" alt=""></a></li>`
 					}).join("");
 
 					//使用数组下标 i: 解决 2个中图大图 循环的问题
-					var imgM_res = imgM.map(function(ele,i){
-						return `<img src="${ele}" data-bgimg="${imgL[i]}" onerror="this.src='/src/img/list/bg/default.402_536.jpg'" class="m_pic" alt="">`;
-					}).join("");
+					// var imgM_res = imgM.map(function(ele,i){
+					// 	return ``;
+					// }).join("");
 					
 					return `
 						<div class="bg_img">
-							${imgM_res}
+							<img src="${imgM[0]}" onerror="this.src='/src/img/list/bg/default.402_536.jpg'" class="m_pic" alt="">
 						</div>
 						<div class="sm_img">
 							<ul class="img_list">
@@ -101,27 +101,31 @@ require(['config','../lib/jquery-3.2.1'],function(){
 				container.append($magnifier);	
 
 				//放大镜插件
-				Magnifying({width:360,height:440,position:'right'});
+				Magnifying({width:440,height:530,position:'right'});			
 
 				//切换展示图片
 				//小图 默认选中 切换效果
 				var $bigPics = $(".bg_img").children(); //所有中图
-				var $bigImg = $(".Magnifier-big").children().eq(0); //展示大图
-
+				var $bigImg = $(".Magnifier-big").children(); //展示大图
+				
+				var $list = $(".img_list").children();//小图列表
 				$(".img_list").children().eq(0).addClass("li_active").siblings().addClass("li_active_line");
+				//默认大图显示第一张
+				$bigImg.attr("src",[$list.eq(0).find("img").data("bgimg")]);
+
 				$(".img_list").on("mouseenter","li",function(){
 					var $idx = $(this).index();
+
 					//小图选中
 					$(this).removeClass().addClass("li_active").siblings().addClass("li_active_line");
-					//中图 切换
-					$bigPics.eq($idx).stop().fadeIn(200).siblings().stop().fadeOut(200);
+
+					//中图 src切换
+					$bigPics.attr("src",[$list.eq($idx).find("img").data("mgimg")])
+
 					//大图src属性切换
-					$bigImg.attr("src",[$bigPics.eq($idx).data("bgimg")]);
-
-					// $(".bigImg").show(); bug!!
-					// $(".Magnifier-big").show();
+					$bigImg.attr("src",[$list.eq($idx).find("img").data("bgimg")]);
 				})
-
+				
 
 
 				/*--右侧商品信息--*/
@@ -186,9 +190,10 @@ require(['config','../lib/jquery-3.2.1'],function(){
 				$goodsInfo.html(goodsStr);
 				container.append($goodsInfo);
 
-				//点击购买商品信息 尺码 颜色 数量
+				/*-----点击购买商品信息 尺码 颜色 数量-------------*/
 				/*------输入框只允许数字------*/
 				$("#goods_num").attr("onkeypress","return (/\\d/.test(String.fromCharCode(event.keyCode)))");
+
 				var gzSize,gzColor,gzNum = 1;
 
 				//点击选中商品参数
@@ -214,7 +219,7 @@ require(['config','../lib/jquery-3.2.1'],function(){
 						gzNum++;
 						$("#goods_num").val(gzNum);	 //更新输入框的值
 					};
-					console.log(gzSize,gzColor,gzNum)	
+					// console.log(gzSize,gzColor,gzNum)	
 				})
 			
 				//输入框失去焦点获得数值，只能获得到数字 上面已做判断
@@ -225,94 +230,164 @@ require(['config','../lib/jquery-3.2.1'],function(){
 				/*-----------点击飞入购物车-----------*/
 				var $cartBag = $("#cart_bag");
 				var num = 0;//用于累加商品数量
-	
+				var flag = true;
 				//加入购物车时 先检查cookie 商品信息
 				$(".join_cart").on("click",function(){
+					//不能连续点击
+					if(!flag){
+						return;
+					}else{
+						flag = false;
+						setTimeout(function(){
+							flag = true;
+						},1000);
+					}
+
+					var cookies = document.cookie;
+					if(cookies.length > 0){
+						createCookie = JSON.parse(CookieMethd.get("goodsInfo"));
+					}					
 					if(gzSize != undefined &&  gzColor != undefined){
-							for(var i=0;i<createCookie.length;i++){
-								if(createCookie[i].goodsid == result.id){
-									if(createCookie[i].goodscolor == gzColor && createCookie[i].goodssize == gzSize){
-										// num += gzNum;
-										createCookie[i].goodsqty = gzNum;
-										createCookie.splice(i,1);
-										// cookObj.goodsqty =num;
-										// console.log(createCookie[i].goodsqty,cookObj.goodsqty);
-										// setCookie();
-										break;
-									}
-									// else{
-
-									// }
-								}
-							}
-
-						//购物车 目标位置
-						var targetTop = parseInt($cartBag.offset().top);
-						var targetLeft = parseInt($cartBag.offset().left);
-					
-
-						//获取小图 克隆
-						var $flyImg = $(".li_active").eq(0).children().eq(0).children("img").clone();
-						$flyImg.addClass("fly-img");
-
-						//点击获取当前位置
-						var currentTop = parseInt($(".join_cart").offset().top);
-						var currentLeft = parseInt($(".join_cart").offset().left);
-					
-						$flyImg.css({
-							top:[currentTop-40]+"px",
-							left:[currentLeft+70]+"px"
-						});
-
-						//插入到body
-						$(document.body).append($flyImg);
-
-						$flyImg.animate({
-							top:targetTop+10,
-							left:targetLeft+20,
-							width:20,
-							height:24						
-						},1000,function(){
-							$(this).remove();
-
-							$cartBag.animate({
-								backgroundPositionX:-68							
-							},0,function(){
-								setTimeout(function(){
-									$cartBag.css({
-										backgroundPositionX:0
-									})
-								},1200)
-								$cartBag.children()[0].innerHTML = num;
-							});							
-						});	
-
 						num += gzNum; 
+						// cookObj.goodsqty = num; //cookie 商品数量
+
+						var newGoodsAdd = {};
+							newGoodsAdd.goodsbrand = result.brand;
+							newGoodsAdd.goodscolor = gzColor;
+							newGoodsAdd.goodsid = result.id;
+							newGoodsAdd.goodsqty = gzNum;
+							newGoodsAdd.goodssize = gzSize;
+							newGoodsAdd.goodstype = result.type;
+							newGoodsAdd.goodsoldprice = result.cost;
+							newGoodsAdd.goodsprice = price;
+							newGoodsAdd.goodsimg = result.imgS.split(" ")[0];
+						// console.log("newGoodsAdd",newGoodsAdd)
+						/*
+						点击生成当前 商品信息，和存放商品的数组 比较
+							如果当期商品购买相同尺寸,颜色 则 存放商品的数组对应数量++ 删除后面重复的值 createCookie.splice(i,1);
+						 */
+						// console.log("外层createCookie",createCookie)
+						// console.log("外层newGoodsAdd",newGoodsAdd)
+						//如果当期商品购买相同尺寸,颜色 则 数量++
+						
+						// console.log(newGoods)
+						console.log(createCookie)
+						if(createCookie.length !== 0){
+							// console.log(555)
+							// console.log(createCookie)
+							createCookie.unshift(newGoodsAdd);
+							createCookie.forEach(function(itm,idx){
+								if(itm.goodsid == newGoodsAdd.goodsid && itm.goodscolor == newGoodsAdd.goodscolor && itm.goodssize == newGoodsAdd.goodssize&&idx!=0){
+									// itm.goodsqty += newGoodsAdd.goodsqty*1; 
+									createCookie[0].goodsqty = createCookie[0].goodsqty + itm.goodsqty;
+									createCookie.splice(idx,1);
+									// console.log(createCookie)
+								}
+								/*else{*/
+
+									var createCookieVal = JSON.stringify(createCookie);
+									console.log(createCookieVal)
+									var nowTime = new Date();
+										nowTime.setDate(nowTime.getDate() + 10);
+									CookieMethd.set("goodsInfo",createCookieVal,nowTime,"/");	
+									showCart();								
+								/*}*/
+							})
+						}else{
+							
+							// console.log(888)
+							//如果商品不存在时 或尺寸 颜色 不一样应该重新生成cookie
+							setCookie();
+						}
 
 
-						cookObj.goodsqty = num; //cookie 商品数量
-						setCookie();								
+
+						//图片飞入
+						flyingImg(); 
+						function flyingImg(){
+							//购物车 目标位置
+							var targetTop = parseInt($cartBag.offset().top);
+							var targetLeft = parseInt($cartBag.offset().left);
+						
+
+							//获取小图 克隆
+							var $flyImg = $(".li_active").eq(0).children().eq(0).children("img").clone();
+							$flyImg.addClass("fly-img");
+
+							//点击获取当前位置
+							var currentTop = parseInt($(".join_cart").offset().top);
+							var currentLeft = parseInt($(".join_cart").offset().left);
+						
+							$flyImg.css({
+								top:[currentTop-40]+"px",
+								left:[currentLeft+70]+"px"
+							});
+
+							//插入到body
+							$(document.body).append($flyImg);
+
+							$flyImg.animate({
+								top:targetTop+10,
+								left:targetLeft+20,
+								width:20,
+								height:24						
+							},1000,function(){
+								$(this).remove();
+
+								$cartBag.animate({
+									backgroundPositionX:-68							
+								},0,function(){
+									setTimeout(function(){
+										$cartBag.css({
+											backgroundPositionX:0
+										})
+									},1200)
+									// $cartBag.children()[0].innerHTML = num;
+								});							
+							});	
+							
+						}
 						//把商品数量放到 动画回调函数中，导致异步 在外面无法获取到，实际能看到，但是是引用类型的原因无法获取到 值
 						function setCookie(){
-							createCookie.push(cookObj);
-							var createCookieVal = JSON.stringify(createCookie);
+							var newGoods = [];
+							newGoods.push(newGoodsAdd);
+							var createCookieVal = JSON.stringify(newGoods);
 							var nowTime = new Date();
 								nowTime.setDate(nowTime.getDate() + 10);
 							CookieMethd.set("goodsInfo",createCookieVal,nowTime,"/");
 						}
 					}
 				})
+
+
+				//吸顶菜单 此时这里的的高度是不正确的 以为上面的数据是异步的
+				var topNav = document.querySelector(".goods_header");
+				var topNavTop = topNav.offsetTop;
+
+				window.addEventListener("scroll",function(){
+					var winTop = window.scrollY;
+					
+					if(winTop > topNavTop){
+						topNav.classList.add("tab-change-fix");
+					}else{
+						$(topNav).removeClass("tab-change-fix");
+					}
+				})
+
 			}
 		})
 
-/*-------------------------------------------*/
+		/*--商品详情 评价 tab切换 吸顶--*/
 		var $contents = $(".goods_content").children();
-		/*--商品详情 评价 tab切换--*/
 		$(".list_tag").on("click","a",function(){
 			$(this).addClass("hover_active").parent("li").siblings("li").children().removeClass("hover_active");
 			var idx = $(this).parent("li").index();
 			$contents.eq(idx).show().siblings(".tags").hide();
 		})
+
+
+
+
 	})
 })	
 

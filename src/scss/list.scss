@@ -293,16 +293,20 @@ section{
 			    text-align: center;
 			    color: #f33;
 			    position: absolute;
+			    bottom: 90px;
 			    width: 99%;
 			    background: #fff;	    		
 	    	}
 	    	.size_tab{
 			    position: absolute;
-			    background: rgba(0,0,0,0.6);
+			    bottom: 42px;
+			    background: rgba(0,0,0,0.3);
 			    width: 100%;
 			    height: 50px;
 			    line-height: 50px;
-			    text-align: center;	  
+			    text-align: center;	 
+			    border-bottom: 1px solid #555;
+			    display: none; 
 			    span{
 					display: inline-block;
 				    width: 30px;
@@ -318,40 +322,40 @@ section{
 			    	color:#FF6602;
 			    }		
 	    	}
-	    	h4{
-				line-height: 24px;
-			    padding-left: 12px;
-			    padding-top: 46px;	    		
-	    	}
-	    	p{ 
+	    	.tab_footer{
 	    		padding-left: 12px;
-	    		a:hover{
-	    			color:#FF6602;
-	    		}
-	    	}
-	    	.price{
-	    		padding-left: 12px;
-	    		span{
-					color: #c60000;
-				    font-size: 18px;
-				    font-weight: bold;	    			
-	    		}
-	    		span::before{
-	    			content:"￥";
-	    			color:#888;
-	    		}
-	    		del{
-					font-size: 14px;
-				    color: #ccc;
-				    padding: 0 16px;	    			
-	    		}
-	    		del::before{
-	    			content:"￥";
-	    			color:#ccc;
-	    		}
+	    		padding-top: 10px;
+		    	h4{
+					line-height: 24px;
+		    	}
+		    	p{ 
+		    		a:hover{
+		    			color:#FF6602;
+		    		}
+		    	}
+		    	.price{
+		    		span{
+						color: #c60000;
+					    font-size: 18px;
+					    font-weight: bold;	    			
+		    		}
+		    		span::before{
+		    			content:"￥";
+		    			color:#888;
+		    		}
+		    		del{
+						font-size: 14px;
+					    color: #ccc;
+					    padding: 0 16px;	    			
+		    		}
+		    		del::before{
+		    			content:"￥";
+		    			color:#ccc;
+		    		}
+		    	}
 	    	}
 	    }
-	    li:hover{outline: 2px solid rgba(0,0,0,0.6);}	
+	    li:hover{outline: 2px solid rgba(0,0,0,0.3);}	
 	}
 
 	.tips{

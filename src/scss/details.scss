@@ -50,10 +50,13 @@ section{
 	//放大镜 图片展示
 	.Magnifier{
 	    width: 405px;
-	    height: 538px;	
+	    height: 536px;	
 	    float: left;
 	    .bg_img{
-		    padding-bottom: 10px;	    	
+		    padding-bottom: 10px;	
+		    overflow: hidden;
+		    width: 403px;
+		    height: 536px;		        	
 			.m_pic{
 				position: absolute;
 				top: 0;
@@ -387,6 +390,7 @@ article {
 			    text-align: center;
 			    color: #fff;
 			    border-radius: 4px;
+			    margin-top: 2px;
     		}
     	}
 	}

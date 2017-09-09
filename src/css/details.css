@@ -150,6 +150,16 @@ input {
   transform: translate(-50%, 0);
 }
 
+.tab-change-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1000px;
+  background: #fff;
+}
+
 /**	
  *  header css
  *  by:lfping
@@ -298,6 +308,16 @@ input {
   left: 0;
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
+}
+
+.tab-change-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1000px;
+  background: #fff;
 }
 
 .top-wrap {
@@ -464,6 +484,15 @@ input {
 
 .top-wrap .top-nav .top-nav-main li:nth-of-type(6) a {
   color: #f33;
+}
+
+.top-wrap .top-nav-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9989;
 }
 
 .top-menu-wrap {
@@ -716,6 +745,16 @@ input {
   left: 0;
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
+}
+
+.tab-change-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1000px;
+  background: #fff;
 }
 
 .ft-wrap {
@@ -991,12 +1030,15 @@ section .wrap {
 
 .container .Magnifier {
   width: 405px;
-  height: 538px;
+  height: 536px;
   float: left;
 }
 
 .container .Magnifier .bg_img {
   padding-bottom: 10px;
+  overflow: hidden;
+  width: 403px;
+  height: 536px;
 }
 
 .container .Magnifier .bg_img .m_pic {
@@ -1383,6 +1425,7 @@ article .goods_header .take_buy a {
   text-align: center;
   color: #fff;
   border-radius: 4px;
+  margin-top: 2px;
 }
 
 article .goods_content {

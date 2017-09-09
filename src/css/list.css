@@ -150,6 +150,16 @@ input {
   transform: translate(-50%, 0);
 }
 
+.tab-change-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1000px;
+  background: #fff;
+}
+
 /**	
  *  header css
  *  by:lfping
@@ -298,6 +308,16 @@ input {
   left: 0;
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
+}
+
+.tab-change-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1000px;
+  background: #fff;
 }
 
 .top-wrap {
@@ -464,6 +484,15 @@ input {
 
 .top-wrap .top-nav .top-nav-main li:nth-of-type(6) a {
   color: #f33;
+}
+
+.top-wrap .top-nav-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9989;
 }
 
 .top-menu-wrap {
@@ -716,6 +745,16 @@ input {
   left: 0;
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
+}
+
+.tab-change-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1000px;
+  background: #fff;
 }
 
 .ft-wrap {
@@ -1267,17 +1306,21 @@ section .wrap {
   text-align: center;
   color: #f33;
   position: absolute;
+  bottom: 90px;
   width: 99%;
   background: #fff;
 }
 
 .container ul li .size_tab {
   position: absolute;
-  background: rgba(0, 0, 0, 0.6);
+  bottom: 42px;
+  background: rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 50px;
   line-height: 50px;
   text-align: center;
+  border-bottom: 1px solid #555;
+  display: none;
 }
 
 .container ul li .size_tab span {
@@ -1296,48 +1339,43 @@ section .wrap {
   color: #FF6602;
 }
 
-.container ul li h4 {
+.container ul li .tab_footer {
+  padding-left: 12px;
+  padding-top: 10px;
+}
+
+.container ul li .tab_footer h4 {
   line-height: 24px;
-  padding-left: 12px;
-  padding-top: 46px;
 }
 
-.container ul li p {
-  padding-left: 12px;
-}
-
-.container ul li p a:hover {
+.container ul li .tab_footer p a:hover {
   color: #FF6602;
 }
 
-.container ul li .price {
-  padding-left: 12px;
-}
-
-.container ul li .price span {
+.container ul li .tab_footer .price span {
   color: #c60000;
   font-size: 18px;
   font-weight: bold;
 }
 
-.container ul li .price span::before {
+.container ul li .tab_footer .price span::before {
   content: "￥";
   color: #888;
 }
 
-.container ul li .price del {
+.container ul li .tab_footer .price del {
   font-size: 14px;
   color: #ccc;
   padding: 0 16px;
 }
 
-.container ul li .price del::before {
+.container ul li .tab_footer .price del::before {
   content: "￥";
   color: #ccc;
 }
 
 .container ul li:hover {
-  outline: 2px solid rgba(0, 0, 0, 0.6);
+  outline: 2px solid rgba(0, 0, 0, 0.3);
 }
 
 .container .tips {

@@ -12,35 +12,6 @@ require(['config','../lib/jquery-3.2.1'],function(){
 		$("#footer").load("../src/html/footer.html footer");
 
 	require(['headJS','carouselJS','commonJS'],function(){
-		/*--头部大背景图---*/
-		// 网页改版
-		// var bgurl = [
-		// 	"./img/index/top_01.jpg",
-		// 	"./img/index/top_02.jpg",
-		// 	"./img/index/top_03.jpg",
-		// 	"./img/index/top_04.jpg",
-		// 	"./img/index/top_05.jpg",
-		// 	"./img/index/top_06.jpg",
-		// ]
-		// var $topBg = $(".top-bg");
-		// var $container = $(".container");
-		// $topBg.html(bgurl.map(function(ele,idx){
-		// 	return `
-		// 		<div style="background:url(${ele}) no-repeat center top;height:159px;"></div>
-		// 	`
-		// }).join(''))
-		// var $aBg = $("<a/>").attr({href:'###',target:"_blank"}).css({
-		// 	display:"inline-block",
-		// 	width:"140px",
-		// 	height:"34px",
-		// 	position:"relative",
-		// 	right:"-72%",
-		// 	top:"60%",
-		// 	zIndex:999
-		// });
-		// $topBg.children().eq(-1).css({
-		// 	position:"relative"
-		// }).append($aBg);
 		
 		//首页轮播图
 		Carousel({
@@ -70,16 +41,44 @@ require(['config','../lib/jquery-3.2.1'],function(){
 			type:'fade'
 		});		
 
-		//请求生成数据 改同步 
+		//请求生成数据 
+		var pro1 = new Promise(function(resolve,reject){
 		//板块：首页 尖货推荐 板块
-		$.ajax({
-			url:"./api/homeRecom.php",
-			type:"get",
-			data:{recommend:"recommend"},
-			async:false,
-			success:function(data){
+			$.ajax({
+				url:"./api/homeRecom.php",
+				type:"get",
+				data:{recommend:"recommend"},
+				success:function(data){
+					resolve(data);
+				}
+			})
+		})		
+		var pro2 = new Promise(function(resolve,reject){
+		//板块：首页 热荐专题
+			$.ajax({
+				url:"./api/homeRecom.php",
+				type:"get",
+				data:{recommend:"hot"},
+				success:function(data){
+					resolve(data);
+				}
+			})			
+		})
+		var pro3 = new Promise(function(resolve,reject){
+		//板块：首页 热荐专题
+			$.ajax({
+				url:"./api/homeRecom.php",
+				type:"get",
+				data:{recommend:"found"},
+				success:function(data){
+					resolve(data);
+				}
+			})			
+		})	
+
+		Promise.all([pro1,pro2,pro3]).then(function(data){
 				try{
-					var imgData = JSON.parse(data);
+					var imgData = JSON.parse(data[0]);
 					var $uls = $('<ul/>');
 						$uls.addClass('uls-sty');
 					var $h3 = $('<h3/>');
@@ -93,19 +92,11 @@ require(['config','../lib/jquery-3.2.1'],function(){
 						}))		
 					$('.recommend').append($h3,$uls);
 				}catch(error){
-					console.log("非标准json字符串")
+					console.log("非标准json字符串1f")
 				}
-			}
-		})
-		//板块：首页 热荐专题
-		$.ajax({
-			url:"./api/homeRecom.php",
-			type:"get",
-			data:{recommend:"hot"},
-			async:false,
-			success:function(data){
+
 				try{
-					var imgData = JSON.parse(data);
+					var imgData = JSON.parse(data[1]);
 					var $uls = $('<ul/>');
 					$uls.addClass('uls-sty');
 					var $h3 = $('<h3/>');
@@ -122,19 +113,11 @@ require(['config','../lib/jquery-3.2.1'],function(){
 						}))		
 					$('.sohot').append($h3,$uls,$more);
 				}catch(error){
-					console.log("非标准json字符串")
+					console.log("非标准json字符串2f")
 				}
-			}
-		})	
-		//板块：首页 热荐专题
-		$.ajax({
-			url:"./api/homeRecom.php",
-			type:"get",
-			data:{recommend:"found"},
-			async:false,
-			success:function(data){
+
 				try{
-					var imgData = JSON.parse(data);
+					var imgData = JSON.parse(data[2]);
 					var $uls = $('<ul/>');
 					$uls.addClass('uls-sty');
 					var $h3 = $('<h3/>');
@@ -150,52 +133,49 @@ require(['config','../lib/jquery-3.2.1'],function(){
 						}))		
 					$('.found-goods').append($h3,$uls,$more);
 				}catch(error){
-					console.log("非标准json字符串")
+					console.log("非标准json字符串3f")
 				}
-			}
-		})
 
-		//图片懒加载
-		var n = 0;
-		var	imgs = $("img");
-		var	imgNum = $("img").length;		
-
-			// imgLoad();
-		
-		$(window).scroll(imgLoad);
-		function imgLoad(){
-			for(var i = n;i<imgNum;i++){
-				if(imgs.eq(i).offset().top < parseInt($(window).height()) + parseInt($(window).scrollTop())){
-					// console.log(imgs.eq(i).offset().top)
-					if(imgs.eq(i).attr("src").indexOf('default') >= 0){// == "./img/index/default.jpg"
-						var src = imgs.eq(i).attr("data-src");
-						// console.log(src)
-						imgs.eq(i).attr("src",src);
-						n = i + 1;
+				//图片懒加载
+				var n = 0;
+				var	imgs = $("img");
+				var	imgNum = $("img").length;		
+				
+				$(window).scroll(imgLoad);
+				function imgLoad(){
+					for(var i = n;i<imgNum;i++){
+						if(imgs.eq(i).offset().top < parseInt($(window).height()) + parseInt($(window).scrollTop())){
+							// console.log(imgs.eq(i).offset().top)
+							if(imgs.eq(i).attr("src").indexOf('default') >= 0){// == "./img/index/default.jpg"
+								var src = imgs.eq(i).attr("data-src");
+								// console.log(src)
+								imgs.eq(i).attr("src",src);
+								n = i + 1;
+							}
+						}
 					}
 				}
-			}
-		}
-		function thro(fun, delay, time) {
-				var timeout,
-				startTime = new Date();
-				return function() {
-					var context = this,
-					args = arguments,
-					curTime = new Date();
-					clearTimeout(timeout);
-					// 如果达到了规定的触发时间间隔，触发 handler
-					if (curTime - startTime >= time) {
-						fun.apply(context, args);
-						startTime = curTime;
-						// 没达到触发间隔，重新设定定时器
-					} else {
-						timeout = setTimeout(fun, delay);
-					}
+				function thro(fun, delay, time) {
+						var timeout,
+						startTime = new Date();
+						return function() {
+							var context = this,
+							args = arguments,
+							curTime = new Date();
+							clearTimeout(timeout);
+							// 如果达到了规定的触发时间间隔，触发 handler
+							if (curTime - startTime >= time) {
+								fun.apply(context, args);
+								startTime = curTime;
+								// 没达到触发间隔，重新设定定时器
+							} else {
+								timeout = setTimeout(fun, delay);
+							}
+						};
 				};
-		};
 
-		// 采用了节流函数
-		window.addEventListener('scroll',thro(imgLoad,600,1000));
+				// 采用了节流函数
+				window.addEventListener('scroll',thro(imgLoad,600,1000));				
+				})
 	})
 })

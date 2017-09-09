@@ -87,10 +87,10 @@ require(['config','../lib/jquery-3.2.1'],function(){
 						
 
 					if(dom.discount !== "10"){
-						var discounts = `限时${dom.discount}折`; 
+						var discounts = `<div class="count">限时${dom.discount}折</div>`; 
 					}
 					if(discounts == undefined){
-						discounts = ""	
+						discounts = "";
 					}
 					var price = parseInt((dom.cost * (dom.discount/10))).toFixed(2);
 					return `
@@ -98,17 +98,32 @@ require(['config','../lib/jquery-3.2.1'],function(){
 							<a href="./details.html?idx=${dom.id}" target="_blank">
 								<img src="../img/list/bg/default.jpg" data-src="${dom.imgurl}">
 							</a>
-							<div class="count">${discounts}</div>
+							${discounts}
 							<div class="size_tab">${resss}</div>
-							<h4>${dom.brand}</h4>
-							<p><a href="#">${dom.type}</a></p>
-							<div class="price"><span>${price}</span><del>${dom.cost}</del></div>
+							<div class="tab_footer">
+								<h4>${dom.brand}</h4>
+								<p><a href="#">${dom.type}</a></p>
+								<div class="price"><span>${price}</span><del>${dom.cost}</del></div>
+							</div>
 						</li>
 					`
 				})
 				$goodsWrap.html("");
 				$uls.html(res);
 				$goodsWrap.append($uls,$tips);	
+
+				//鼠标移入移出效果
+				$goodsWrap.on("mouseenter","li",function(){
+					$(this).find(".count").stop().animate({bottom:70},200,function(){
+						$(this).stop().fadeOut(50);
+					}).end().find(".size_tab").stop().show().animate({bottom:70},200);
+				})
+				.on("mouseleave","li",function(){
+					$(this).find(".size_tab").stop().animate({bottom:42},200,function(){
+						$(this).stop().fadeOut(50);
+					}).end().find(".count").stop().show().animate({bottom:90},200);
+				})
+
 
 				//图片懒加载
 				//n = 0 不用从每一次都从第一张图片开始遍历 而是加载最新图片的那个位置开始
@@ -130,6 +145,20 @@ require(['config','../lib/jquery-3.2.1'],function(){
 					}
 				}					
 		}
+
+		//吸顶菜单
+		var topNav = document.querySelector(".top-nav");
+		var topNavTop = topNav.offsetTop;
+
+		window.addEventListener("scroll",function(){
+			var winTop = window.scrollY;
+			
+			if(winTop > topNavTop){
+				topNav.classList.add("top-nav-fix");
+			}else{
+				$(topNav).removeClass("top-nav-fix");
+			}
+		})
 
 		//右侧悬浮效果
 		var $aside = $(".aside"),
