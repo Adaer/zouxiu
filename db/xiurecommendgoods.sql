@@ -1,0 +1,16 @@
+INSERT INTO `xiurecommendgoods` VALUES (00000000001, 'id01', './img/home/found/h1.jpg', 'javascript:;', './img/index/default.jpg');
+INSERT INTO `xiurecommendgoods` VALUES (00000000002, 'id02	', './img/home/found/h2.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000003, 'id03	', './img/home/found/h3.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000004, 'id04	', './img/home/found/h4.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000005, 'id05	', './img/home/found/h5.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000006, 'id06	', './img/home/found/h6.jpg', 'javascript:;', './img/index/default.jpg');
+INSERT INTO `xiurecommendgoods` VALUES (00000000007, 'id07	', './img/home/found/h7.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000008, 'id08	', './img/home/found/h8.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000009, 'id09	', './img/home/found/h9.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000010, 'id10	', './img/home/found/h10.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000011, 'id11	', './img/home/found/h11.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000012, 'id12	', './img/home/found/h12.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000013, 'id13	', './img/home/found/h13.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000014, 'id14	', './img/home/found/h14.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000015, 'id15	', './img/home/found/h15.jpg', 'javascript:;', './img/index/default.jpg	');
+INSERT INTO `xiurecommendgoods` VALUES (00000000016, 'id16	', './img/home/found/h16.jpg', 'javascript:;', './img/index/default.jpg	');

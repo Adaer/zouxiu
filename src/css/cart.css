@@ -277,11 +277,11 @@ section .s_wrap .cart_box .cart_title span:nth-of-type(1) {
 }
 
 section .s_wrap .cart_box .cart_title span:nth-of-type(2) {
-  left: 65%;
+  left: 62%;
 }
 
 section .s_wrap .cart_box .cart_title span:nth-of-type(3) {
-  left: 80%;
+  left: 75%;
 }
 
 section .s_wrap .cart_box .cart_title span:nth-of-type(4) {
@@ -296,7 +296,7 @@ section .s_wrap .cart_box .cart_body ul li {
 }
 
 section .s_wrap .cart_box .cart_body ul li .goods_info {
-  width: 40%;
+  width: 50%;
   overflow: hidden;
   float: left;
 }
@@ -514,6 +514,10 @@ section .s_wrap .cart_box .cart_accounts .cart_accounts_rt .goods_info .sale_res
 section .s_wrap .cart_box .cart_accounts .cart_accounts_rt .goods_info .sale_res i {
   padding: 0 10px;
   margin-right: 8px;
+}
+
+section .s_wrap .cart_box .cart_accounts .cart_accounts_rt .goods_info .sale_res i::before {
+  content: "￥";
 }
 
 section .s_wrap .cart_box .cart_accounts .cart_accounts_rt .pay_all {

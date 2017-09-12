@@ -11,17 +11,19 @@ require(['config','../lib/jquery-3.2.1'],function(){
 		$("#header").load("../html/header.html header");
 		$("#footer").load("../html/footer.html footer");
 
-	require(['headJS'],function(){
+	require(['headJS','commonJS'],function(){
 		//请求后台数据
 		//默认请求数据
 		var $pageNo = 1;
 		var $qty = 24;
+
 		var $goodsWrap = $(".container");
 		$.ajax({
 			url:"../api/shopdata.php",
 			data:{
 				pageNo:$pageNo,
-				qty:$qty
+				qty:$qty,
+				sort:'normal'
 			},
 			success:function(res){
 				ajaxRes(res);
@@ -42,25 +44,95 @@ require(['config','../lib/jquery-3.2.1'],function(){
 					url:"../api/shopdata.php",
 					data:{
 						pageNo:$pageNo,
-						qty:$qty					
+						qty:$qty,
+						sort:'normal'					
 					},
 					success:function(res){
 						ajaxRes(res);
-						// window.location.reload(); 如何刷新页面 (方法2：返回到顶部)
+						//如何局部刷新页面 (方法2：返回到顶部)
 					}
 				})								
 			}
-
-
-
 		})
+		// 点击排序
+		var sorts = document.querySelector(".sort");
+		var flag = true;
+		var flags = true;
+		var sort_price_res;
+		sorts.addEventListener("click",function(e){
+			var target = e.target;
+			if(target.classList.contains("sort_price")){
+				if(flag){
+					flag = false;
+					$.ajax({
+						url:"../api/shopdata.php",
+						data:{
+							pageNo:$pageNo,
+							qty:$qty,
+							sort:"max"					
+						},
+						success:function(res){
+							// console.log(res);
+							ajaxRes(res)
+							//如何局部刷新页面 (方法2：返回到顶部)
+						}
+					})
+				}else{
+					flag = true;
+					$.ajax({
+						url:"../api/shopdata.php",
+						data:{
+							pageNo:$pageNo,
+							qty:$qty,
+							sort:"min"					
+						},
+						success:function(res){
+							// console.log(res);
+							ajaxRes(res)
+							//如何局部刷新页面 (方法2：返回到顶部)
+						}						
+					})
+				}
+			}
+			if(target.classList.contains("sort_normal")){
+				if(!flags){
+					return;
+				}else{
+					flags = false;
+					setTimeout(function(){
+						flags = true;
+					},3000)
+				}
+					$.ajax({
+						url:"../api/shopdata.php",
+						data:{
+							pageNo:$pageNo,
+							qty:$qty,
+							sort:"normal"					
+						},
+						success:function(res){
+							// console.log(res);
+							ajaxRes(res)
+							//如何局部刷新页面 (方法2：返回到顶部)
+						}
+					})				
+			}
+		})						
+
 		//将结果 封装出来 以便重复调用
 		function ajaxRes(res){
 				var resData = res;
 				try{
 					resData = JSON.parse(res);
+					// console.log(resData)
 				}catch(error){
-					console.log("error")
+					try{
+						resData = JSON.parse(res)[0];
+						// console.log(resData)
+
+					}catch(err){
+						
+					}
 				}
 				var $uls = $("<ul/>");
 				var $tips = $("<div/>").addClass("tips");
@@ -76,10 +148,11 @@ require(['config','../lib/jquery-3.2.1'],function(){
 					}
 					$tips.append($spans);
 				}
-
+				var brandType = document.querySelector(".brand_type");
 				//遍历数据 生成结构
-				var res = resData.data.map(function(dom){
-					
+				// console.log(resData.data)
+				var res = resData.data.map(function(dom,idx){
+					brandType.innerHTML += `<a href="javascript:;">${dom.brand}</a>`;
 					var sizeArr = dom.size.split(" ");
 					var resss = sizeArr.map(function(ele){
 							return `<span>${ele}</span>`
@@ -93,6 +166,7 @@ require(['config','../lib/jquery-3.2.1'],function(){
 						discounts = "";
 					}
 					var price = parseInt((dom.cost * (dom.discount/10))).toFixed(2);
+
 					return `
 						<li data-guid="${dom.id}">
 							<a href="./details.html?idx=${dom.id}" target="_blank">
@@ -143,7 +217,18 @@ require(['config','../lib/jquery-3.2.1'],function(){
 							}
 						}
 					}
-				}					
+				}	
+
+				//商品品牌标题高度调试
+				
+				var $ht = $(brandType).outerHeight();
+				$(brandType).prev().height($ht);	
+				if($(brandType).outerHeight() > 100){
+					$(brandType).removeAttr("min-height").css({
+						height: "70px",
+						overflowY:"auto"
+					}).end().prev().height(70);
+				}							
 		}
 
 		//吸顶菜单
@@ -167,5 +252,25 @@ require(['config','../lib/jquery-3.2.1'],function(){
 		frShut.click(function(){
 			$aside.fadeOut(200)
 		})
+
+		//用于存储cookie信息
+		var createCookie = [];
+		//判断cookie是否存在
+		var cookies = document.cookie;
+		if(cookies.length > 0){
+			createCookie = JSON.parse(CookieMethd.get("goodsInfo"));
+			showCart();
+		}
+		function showCart(){
+			createCookie = JSON.parse(CookieMethd.get("goodsInfo"));
+			var qty = 0;
+			createCookie.map(function(item){
+				// console.log(item.goodsqty)
+				qty += item.goodsqty;
+				$("#cart_bag").children().html(qty);
+			})
+		}
+
+		
 	})
 })

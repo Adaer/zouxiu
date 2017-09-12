@@ -103,10 +103,10 @@ section .s_wrap{
 		    	left: 35%;
 		    }
 		    span:nth-of-type(2){
-		    	left: 65%;
+		    	left: 62%;
 		    }
 		    span:nth-of-type(3){
-		    	left: 80%;
+		    	left: 75%;
 		    }
 		    span:nth-of-type(4){
 		    	left: 90%;
@@ -120,7 +120,7 @@ section .s_wrap{
 				    zoom: 1;
 				    border-top: 1px solid #ccc;    	
     				.goods_info{
-					 	width: 40%;
+					 	width: 50%;
 					    overflow: hidden;
 					    float: left;		
     					.select_this{
@@ -300,6 +300,9 @@ section .s_wrap{
     					i{
     	    				padding: 0 10px;
     						margin-right: 8px;
+    					}
+    					i::before{
+    						content:"￥";
     					}			
     				}
     			}
